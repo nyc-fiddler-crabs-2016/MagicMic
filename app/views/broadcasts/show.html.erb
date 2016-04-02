@@ -1,2 +1,8 @@
 <h1><%= @broadcast.topic %></h1>
 <h3><%= @broadcast.datetime %></h3>
+
+<% if @broadcast.speaker == current_user %>
+  <%= render 'megaphone' %>
+<% else %>
+  <%= render 'stream' %>
+<% end %>
