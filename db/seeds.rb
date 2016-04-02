@@ -5,9 +5,9 @@ user4 = User.create(username: "steve4", email: "email@4.com", password: "passwor
 
 broadcast1 = Broadcast.create(topic: "The State of the Onion", speaker_id: 1 )
 broadcast2 = Broadcast.create(topic: "Rails Magic and How to Use It", speaker_id: 1 )
-broadcast3 = Broadcast.create(topic: "The Secrets of the Rails Wizards", speaker_id: 1 )
-broadcast4 = Broadcast.create(topic: "Beware the Coming of the Nice Age", speaker_id: 4 )
-broadcast5 = Broadcast.create(topic: "MarioKart Racers: Where Are They Now?", speaker_id: 4 )
+broadcast3 = Broadcast.create(topic: "The Secrets of the Rails Wizards", speaker_id: 1, datetime: DateTime.new(2015, 5,15, 19,00, -5))
+broadcast4 = Broadcast.create(topic: "Beware the Coming of the Nice Age", speaker_id: 4, datetime: DateTime.new(2015, 9,15, 20,00, -5))
+broadcast5 = Broadcast.create(topic: "MarioKart Racers: Where Are They Now?", speaker_id: 4, datetime: DateTime.new(2016, 12,15, 21,00, -5))
 
 
 UserBroadcast.create(user_id: 2, broadcast_id: 1)

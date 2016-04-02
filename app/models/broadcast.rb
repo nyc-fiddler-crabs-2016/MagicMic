@@ -9,15 +9,25 @@ class Broadcast < ActiveRecord::Base
 
 
 
+def self.upcoming
+  Broadcast.where("datetime > ?", DateTime.now)
+end
+
+def readable_time
+  self.datetime.strftime("%A, %B %d, %Y at %l%p")
+end
 
 
+# def self.past
+#   Broadcast.where("datetime < ?", DateTime.now)
+# end
   # def invite_list(emails)
       # array_of_emails = emails
   # end
 
-  def notify_by_email
+  # def notify_by_email
 
-  end
+  # end
 
 end
 
