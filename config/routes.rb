@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+root 'broadcasts#index'
+
+get 'login' => 'sessions#new', as: :login
+get 'logout' => 'sessions#destroy', as: :logout
+
 resources :users, only: [:new, :create, :show, :destroy]
-resources :sessions, only: [:new, :create, :destroy]
+resources :sessions, only: [:create]
 resources :broadcasts
 
 
