@@ -1,16 +1,4 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-$(document).ready(function) {
-  $("#headphones").on ("click", function(){
 
-
-  });
-
-  $("#megaphone").on ("click", function(){
-
-  });
-
-  };
 function setupSocketComms() {
 
   console.log('Socket comms init');
@@ -103,7 +91,8 @@ function setupSocketComms() {
   // if broadcast is available, simply join it. i.e. "join-broadcaster" event should be emitted.
   // if broadcast is absent, simply create it. i.e. "start-broadcasting" event should be fired.
   document.getElementById('open-or-join').onclick = function() {
-     var broadcastid = document.getElementById('broadcast-id').value;
+     var broadcastId = document.getElementById('open-or-join').dataset.room;
+     console.log('id', broadcastId);
      if (broadcastid.replace(/^\s+|\s+$/g, '').length <= 0) {
          alert('Please enter broadcast-id');
          document.getElementById('broadcast-id').focus();
