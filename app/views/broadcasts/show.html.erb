@@ -1,4 +1,4 @@
-<h1><%= @broadcast.topic %></h1>
+<h1 id="broadcast-show-header" ><%= @broadcast.topic %></h1>
 <h3><%= @broadcast.datetime %></h3>
 
 <% if @broadcast.speaker == current_user %>
@@ -6,3 +6,5 @@
 <% else %>
   <%= render 'stream' %>
 <% end %>
+
+<button id="open-or-join">Open or join</button>
