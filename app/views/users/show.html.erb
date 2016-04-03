@@ -1,0 +1,14 @@
+<h3><%= @user.username%>'s Upcoming Broadcasts</h3>
+
+<% if @broadcasts %>
+  <% @broadcasts.each do |stream| %>
+    <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Schedule a Broadcast', new_broadcast_path %>
+
+
+
+
+

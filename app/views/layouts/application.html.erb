@@ -3,10 +3,34 @@
 <head>
   <title>MagicMic</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <script src="http://localhost:8888/socket.io/socket.io.js"></script>
+  <script src="http://localhost:8888/RTCMultiConnection.js"></script>
+
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<header>
+  <nav>
+   <ul>
+    <% if current_user %>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <li><%= link_to "My Upcoming Broadcasts", user_path(current_user) %></li>
+    <% else %>
+      <li><%= link_to "Login", new_login_path %></li>
+      <li><%= link_to "Signup", new_user_path %></li>
+    <% end %>
+  </ul>
+  </nav>
+</header>
+ <li><a href="/">Broadcasts</a></li>
+ <% if flash.any? %>
+   <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+  <% end %>
+
 
 <%= yield %>
 
