@@ -4,9 +4,11 @@
 This module simply initializes socket.io and configures it in a way that single broadcast can be relayed over unlimited users without any <a href="https://www.webrtc-experiment.com/docs/RTP-usage.html">bandwidth/CPU usage issues</a>. Everything happens peer-to-peer!
 
 <br><br>
-Share files with unlimited users using p2p methods! <a href="/share-files.html">share-files.html</a>
+Share files with unlimited users using p2p methods! <a id ="abc" href="/share-files.html">share-files.html</a>
 <hr>
-<input type="text" id="broadcast-id" placeholder="broadcast-id" value="room-xyz">
+
+<form id="room-form">
+<input type="text" id="broadcast-id" placeholder="broadcast-id">
 <select id="broadcast-options">
     <option>Audio+Video</option>
     <option title="Works only in Firefox.">Audio+Screen</option>
@@ -14,47 +16,32 @@ Share files with unlimited users using p2p methods! <a href="/share-files.html">
     <option>Video</option>
     <option title="Screen capturing requries HTTPs. Please run this demo on HTTPs to make sure it can capture your screens.">Screen</option>
 </select>
-<button id="open-or-join">Open or Join Broadcast</button>
+<input id="open-or-join" type="submit" value="Open or Join Broadcast"</button>
+</form>
 <hr>
 <div id="videos-container"></div>
-<style>
-video {
-    width: 30%;
-}
-button, input, select {
-    font-family: Myriad, Arial, Verdana;
-    font-weight: normal;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    padding: 4px 12px;
-    text-decoration: none;
-    color: rgb(27, 26, 26);
-    display: inline-block;
-    box-shadow: rgb(255, 255, 255) 1px 1px 0px 0px inset;
-    text-shadow: none;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.05, rgb(241, 241, 241)), to(rgb(230, 230, 230)));
-    font-size: 20px;
-    border: 1px solid red;
-    outline:none;
-}
-button:active, input:active, select:active, button:focus, input:focus, select:focus {
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(5%, rgb(221, 221, 221)), to(rgb(250, 250, 250)));
-    border: 1px solid rgb(142, 142, 142);
-}
-button[disabled], iput[disabled], select[disabled] {
-    background: rgb(249, 249, 249);
-    border: 1px solid rgb(218, 207, 207);
-    color: rgb(197, 189, 189);
-}
-input, input:focus, input:active {
-    background: white;
-}
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/RTCMultiConnection.js"></script>
 <script>
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+};
+
+var room = getParameterByName('room');
+// console.log(room);
+
+$(document).ready(function(){
+    $("#broadcast-id").val(room);
+});
+
 var socket = io.connect();
 // using single socket for RTCMultiConnection signaling
 var onMessageCallbacks = {};

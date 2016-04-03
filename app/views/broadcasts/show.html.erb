@@ -4,7 +4,7 @@
 <% if @broadcast.speaker == current_user %>
   <%= render 'megaphone' %>
 <% else %>
-  <%= render 'stream' %>
+  <%= render 'headphones' %>
 <% end %>
 
 <button id="open-or-join" data-room="room<%=@broadcast.id%>">Open or join</button>
