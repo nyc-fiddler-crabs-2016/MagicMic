@@ -7,4 +7,5 @@
   <%= render 'stream' %>
 <% end %>
 
-<button id="open-or-join">Open or join</button>
+<button id="open-or-join" data-room="room<%=@broadcast.id%>">Open or join</button>
+<div id ="broadcast-id"><%=@broadcast.id%></div>
