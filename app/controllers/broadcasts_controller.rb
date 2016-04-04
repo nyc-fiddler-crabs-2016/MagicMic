@@ -7,13 +7,13 @@ class BroadcastsController < ApplicationController
   end
 
   def new
-    render 'new'
+    @broadcast = Broadcast.new
   end
 
   def create
-    @broadcast = Broadcast.new
+    @broadcast = Broadcast.new(broadcast_params)
     if @broadcast.save
-      redirect_to :index
+      redirect_to :root
     else
       redirect_to :back
     end
@@ -29,10 +29,15 @@ class BroadcastsController < ApplicationController
 
   def update
     @broadcast = Broadcast.find(params[:id])
+    if @broadcast.update(broadcast_params)
+      redirect_to :root
+    else
+      redirect_to :back
+    end
   end
 
   def destroy
-    @broadcast = Broadcast.find(params[:id])
+    broadcast = Broadcast.find(params[:id])
     broadcast.destroy
     redirect_to root_path
   end
@@ -48,5 +53,10 @@ class BroadcastsController < ApplicationController
   #   end
   # end
 
+  private
+
+  def broadcast_params
+    params.require(:broadcast).permit(:topic, :datetime, :duration).merge(speaker_id: current_user.id)
+  end
 
 end
