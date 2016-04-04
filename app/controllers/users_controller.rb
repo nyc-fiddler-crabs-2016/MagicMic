@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @broadcasts = Broadcast.upcoming.where(speaker_id: @user.id)
+    @saved_broadcasts = Broadcast.find_by(id: @user.saved_broadcasts.id)
+
   end
 
   def destroy

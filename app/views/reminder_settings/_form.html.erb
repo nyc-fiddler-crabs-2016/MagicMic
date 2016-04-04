@@ -1,0 +1,13 @@
+<div id="reminder-settings-form">
+  <%= form_for :reminder_setting, url: reminder_settings_path(@broadcast) do |f| %>
+  <p>Would you like us to send you email or sms reminders?</p>
+
+    <%= f.check_box(:email_reminder) %>
+    <%= f.label :email%>
+    <%= f.check_box(:text_message) %>
+    <%= f.label :text%>
+
+    <%= f.submit :submit %>
+
+  <% end %>
+</div>

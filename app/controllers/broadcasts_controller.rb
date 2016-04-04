@@ -13,6 +13,7 @@ class BroadcastsController < ApplicationController
   def create
     @broadcast = Broadcast.new(broadcast_params)
     if @broadcast.save
+      # binding.pry
       redirect_to :root
     else
       redirect_to :back
@@ -21,6 +22,7 @@ class BroadcastsController < ApplicationController
 
   def show
     @broadcast = Broadcast.find(params[:id])
+    @reminder_settings = ReminderSetting.find_by(broadcast_id: @broadcast.id)
   end
 
   def edit

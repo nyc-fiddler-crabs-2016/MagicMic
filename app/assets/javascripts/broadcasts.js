@@ -165,4 +165,14 @@ $(document).ready(function(){
   if (header.length > 0) {
     setupSocketComms();
   };
+
+$("#reminder_signup").on("click", function(event){
+  event.preventDefault();
+  console.log("sup");
+  $("#reminder-settings-form").show();
+  $("#reminder_signup").hide();
 });
+
+});
+
+

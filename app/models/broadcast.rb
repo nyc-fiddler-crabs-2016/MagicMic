@@ -5,7 +5,8 @@ class Broadcast < ActiveRecord::Base
   belongs_to :speaker, class_name: "User"
   has_many :user_broadcasts, dependent: :destroy
   has_many :listeners, through: :user_broadcasts, source: :user
-
+  has_many :reminder_settings
+  has_many :listeners, through: :reminder_settings, source: :user
 
 
 

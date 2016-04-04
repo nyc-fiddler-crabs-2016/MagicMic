@@ -5,8 +5,11 @@ root 'broadcasts#index'
 get 'login' => 'sessions#new', as: :new_login
 delete 'logout' => 'sessions#destroy', as: :logout
 post 'login' => 'sessions#create', as: :login
+
 resources :users, only: [:new, :create, :show, :destroy]
 resources :broadcasts
+resources :reminder_settings, only: [:new, :create]
+resources :user_broadcasts, only: [:new, :create]
 
 
 
