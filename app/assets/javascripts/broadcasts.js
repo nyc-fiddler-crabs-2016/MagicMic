@@ -1,7 +1,5 @@
 
 function setupSocketComms() {
-
-  console.log('Sosd;oknvfoubvodfnbinfbpin');
   var socket = io.connect('http://localhost:8888');
 
   // using single socket for RTCMultiConnection signaling
@@ -165,14 +163,6 @@ $(document).ready(function(){
   if (header.length > 0) {
     setupSocketComms();
   };
-
-$("#reminder_signup").on("click", function(event){
-  event.preventDefault();
-  console.log("sup");
-  $("#reminder-settings-form").show();
-  $("#reminder_signup").hide();
-});
-
 });
 
 
