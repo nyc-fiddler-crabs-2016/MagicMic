@@ -8,14 +8,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    respond_to do |format|
     if @user.save
+      UserMailer.welcome_email(@user).deliver_now
+
       session[:user_id] = @user.id
       redirect_to root_path
     else
       flash.alert = "Something went awry. Please try again"
       render 'form'
     end
-
+  end
   end
 
   def show
