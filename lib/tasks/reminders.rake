@@ -1,34 +1,26 @@
-class Broadcast < ActiveRecord::Base
-  # validates :
-  # after_save :notify_by_email
+namespace :reminders do
+  desc "TODO"
 
-  belongs_to :speaker, class_name: "User"
-  has_many :user_broadcasts, dependent: :destroy
-  has_many :listeners, through: :user_broadcasts, source: :user
-
-
-
-
-  def self.upcoming
-    Broadcast.where("datetime > ?", DateTime.now)
+  task email: :environment do
+    Broadcast.where("datetime > ?", DateTime.now).each do |b|
+      puts b.topic
+    end
+    # puts "email"
   end
 
-  def readable_time
-    self.datetime.strftime("%A, %B %d, %Y at %l%p")
-  end
-
-  def self.reset_broadcast_list
-    #Broadcast.where("datetime < ?", DateTime.now - 120.minutes).delete_all
-  end
-
-  # def invite_list(emails)
-   # array_of_emails = emails
+  desc "TODO"
+  task text: :environment do
+    send_message
   # end
+  end
 
-  # def notify_by_email
+end
 
-  # end
-  def self.send_message
+
+def send_email
+end
+
+def send_message
   # (phone_number, alert_message)
     gary_phone = '9175547210'
     joe_phone = '4155598988'
@@ -50,8 +42,3 @@ class Broadcast < ActiveRecord::Base
     puts error.message
     binding.pry
   end
-
-end
-
-
-

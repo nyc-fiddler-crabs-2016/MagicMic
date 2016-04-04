@@ -24,7 +24,6 @@ class BroadcastsController < ApplicationController
   def show
     if current_user
       send_message
-      # binding.pry
     @broadcast = Broadcast.find(params[:id])
     end
   end
