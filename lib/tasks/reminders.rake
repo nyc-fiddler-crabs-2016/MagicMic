@@ -18,6 +18,7 @@ end
 
 
 def send_email
+
 end
 
 def send_message
@@ -40,5 +41,4 @@ def send_message
     # binding.pry
   rescue Twilio::REST::RequestError =>error
     puts error.message
-    binding.pry
   end
