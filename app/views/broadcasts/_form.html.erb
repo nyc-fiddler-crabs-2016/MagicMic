@@ -1,11 +1,11 @@
 <%= form_for @broadcast do |f| %>
 
 	<%= f.label :topic %>
-	<%= f.text_field :topic %>
+	<%= f.text_field :topic, autofocus: true%>
 	<%= f.label :datetime %>
 	<%= f.text_field :datetime %>
 	<%= f.label :duration %>
 	<%= f.text_field :duration %>
 	<%= f.submit :submit %>
 
-<%= end %>
+<% end %>
