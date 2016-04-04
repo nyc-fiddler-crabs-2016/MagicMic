@@ -1,21 +1,13 @@
-<title>WebRTC Scalable Broadcast using RTCMultiConnection</title>
-<h1><a href="https://github.com/muaz-khan/WebRTC-Scalable-Broadcast">WebRTC Scalable Broadcast</a> using <a href="https://github.com/muaz-khan/RTCMultiConnection">RTCMultiConnection</a></h1>
-<hr>
-This module simply initializes socket.io and configures it in a way that single broadcast can be relayed over unlimited users without any <a href="https://www.webrtc-experiment.com/docs/RTP-usage.html">bandwidth/CPU usage issues</a>. Everything happens peer-to-peer!
-
-<br><br>
-Share files with unlimited users using p2p methods! <a id ="abc" href="/share-files.html">share-files.html</a>
-<hr>
+<!-- <title>WebRTC Scalable Broadcast using RTCMultiConnection</title>
+<h1><a href="https://github.com/muaz-khan/WebRTC-Scalable-Broadcast">WebRTC Scalable Broadcast</a> using <a href="https://github.com/muaz-khan/RTCMultiConnection">RTCMultiConnection</a></h1> -->
+<!-- <hr>
+This module simply initializes socket.io and configures it in a way that single broadcast can be relayed over unlimited users without any <a href="https://www.webrtc-experiment.com/docs/RTP-usage.html">bandwidth/CPU usage issues</a>. Everything happens peer-to-peer! -->
+<!--videos-container -->
 
 <form id="room-form">
 <input type="text" id="broadcast-id" placeholder="broadcast-id">
-<select id="broadcast-options">
-    <option>Audio+Video</option>
-    <option title="Works only in Firefox.">Audio+Screen</option>
-    <option>Audio</option>
-    <option>Video</option>
-    <option title="Screen capturing requries HTTPs. Please run this demo on HTTPs to make sure it can capture your screens.">Screen</option>
-</select>
+<!-- ;[.]p,l
+ -->
 <input id="open-or-join" type="submit" value="Open or Join Broadcast"</button>
 </form>
 <hr>
@@ -116,6 +108,8 @@ connection.onstream = function(event) {
 // ask node.js server to look for a broadcast
 // if broadcast is available, simply join it. i.e. "join-broadcaster" event should be emitted.
 // if broadcast is absent, simply create it. i.e. "start-broadcasting" event should be fired.
+
+// onready? don't know what the vanilla js version is jquery
 document.getElementById('open-or-join').onclick = function() {
     var broadcastid = document.getElementById('broadcast-id').value;
     if (broadcastid.replace(/^\s+|\s+$/g, '').length <= 0) {
@@ -125,9 +119,10 @@ document.getElementById('open-or-join').onclick = function() {
     }
     this.disabled = true;
     connection.session = {
-        video: document.getElementById('broadcast-options').value.indexOf('Video') !== -1,
-        screen: document.getElementById('broadcast-options').value.indexOf('Screen') !== -1,
-        audio: document.getElementById('broadcast-options').value.indexOf('Audio') !== -1,
+        // video: document.getElementById('broadcast-options').value.indexOf('Video') !== -1,
+        // screen: document.getElementById('broadcast-options').value.indexOf('Screen') !== -1,
+        // audio: document.getElementById('broadcast-options').value.indexOf('Audio') !== -1,
+        audio: true,
         oneway: true
     };
     socket.emit('join-broadcast', {
