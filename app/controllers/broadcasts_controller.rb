@@ -23,6 +23,7 @@ class BroadcastsController < ApplicationController
   def show
     @broadcast = Broadcast.find(params[:id])
     @reminder_settings = ReminderSetting.find_by(broadcast_id: @broadcast.id)
+    @reminder_setting = ReminderSetting.new
   end
 
   def edit
