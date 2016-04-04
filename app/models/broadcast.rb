@@ -18,7 +18,7 @@ class Broadcast < ActiveRecord::Base
   end
 
   def self.reset_broadcast_list
-    Broadcast.where("datetime < ?", DateTime.now - 120.minutes).delete_all
+    Broadcast.where("datetime < ?", DateTime.now - 120.minutes).destroy_all
   end
 
   # def invite_list(emails)
