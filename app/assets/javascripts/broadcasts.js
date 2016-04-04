@@ -102,9 +102,9 @@ function setupSocketComms() {
      this.disabled = true;
 
      connection.session = {
-         video: document.getElementById('broadcast-options').value.indexOf('Video') !== -1,
-         screen: document.getElementById('broadcast-options').value.indexOf('Screen') !== -1,
-         audio: document.getElementById('broadcast-options').value.indexOf('Audio') !== -1,
+         video: false,
+         screen: false,
+         audio: true,
          oneway: true
      };
 
