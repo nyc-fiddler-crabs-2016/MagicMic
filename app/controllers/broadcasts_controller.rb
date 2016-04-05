@@ -4,8 +4,10 @@ class BroadcastsController < ApplicationController
 
  # before_action :ensure_ownership
 
+
   def index
-    @broadcasts = Broadcast.all
+    # @broadcasts = Broadcast.all
+    @broadcasts = Broadcast.search(params[:search])
   end
 
   def new
