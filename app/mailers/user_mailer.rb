@@ -8,6 +8,4 @@ default from: 'notifications@magicmikedbc.com'
     mail(to: email_with_name,
          subject: 'Welcome to MagicMic')
   end
-
-
 end
