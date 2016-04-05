@@ -3,13 +3,14 @@
 <h1 id="broadcast-show-header" ><%= @broadcast.topic %></h1>
 
 <h3 id="broadcast-time-header"><%= @broadcast.readable_time %></h3>
-
+<p>
 <% if @broadcast.speaker == current_user %>
   <%= link_to "Cancel This Broadcast", broadcast_path(@broadcast), method: :delete %>
-  <%= render 'megaphone' %>
+  <%= render 'mic' %>
 <% else %>
-  <%= render 'headphones' %>
+  <%= render 'play' %>
 <% end %>
+</p>
 
 
 

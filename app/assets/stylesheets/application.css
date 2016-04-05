@@ -21,20 +21,25 @@
   }
 
   html {
-      height: 100%;
+    height: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
 
   nav {
-    background: #9a9a9a;
-    margin: 0 auto;
+    margin: auto;
     padding: 10px;
     align-content: center;
     width: 100%;
     display: block;
     font-weight: bold;
+
+    background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(gray, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(gray, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(gray, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(gray, white); /* Standard syntax */
   }
 
   body {
@@ -63,9 +68,9 @@
 
 
 
-  #broadcast-index {
+  #broadcast-index, .broadcast-show-page, #new-broadcast-form, #new-session-form, .success {
     padding: 20px;
-    margin:10px auto;
+    margin: 30px auto;
     text-align:left;
 
     width:330px;
@@ -84,23 +89,9 @@
   }
 
   .broadcast-show-page {
-    padding: 20px;
-    margin:10px auto;
     text-align:center;
 
     width:450px;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    background: white; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(white, gray); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, gray); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, gray); /* Standard syntax */
-
-    border-radius: 5px;
   }
 
 
@@ -154,23 +145,7 @@
     text-align: center;
   }
 
-  #new-broadcast-form, #new-session-form, .success {
-    align-content: center;
-    width:250px;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
 
-      background: white; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(white, gray); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, gray); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, gray); /* Standard syntax */
-  }
 
   .success {
     text-align: center;
