@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160405135002) do
 
   create_table "broadcasts", force: :cascade do |t|
     t.string   "topic",                                      null: false
-    t.datetime "datetime",   default: '2016-04-05 15:10:33'
+    t.datetime "datetime",   default: '2016-04-05 16:45:21'
     t.integer  "duration",   default: 60
     t.integer  "speaker_id"
     t.datetime "created_at",                                 null: false
@@ -39,16 +39,6 @@ ActiveRecord::Schema.define(version: 20160405135002) do
   add_index "reminder_settings", ["broadcast_id"], name: "index_reminder_settings_on_broadcast_id", using: :btree
   add_index "reminder_settings", ["user_id"], name: "index_reminder_settings_on_user_id", using: :btree
 
-  create_table "user_broadcasts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "broadcast_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "user_broadcasts", ["broadcast_id"], name: "index_user_broadcasts_on_broadcast_id", using: :btree
-  add_index "user_broadcasts", ["user_id"], name: "index_user_broadcasts_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -59,6 +49,4 @@ ActiveRecord::Schema.define(version: 20160405135002) do
 
   add_foreign_key "reminder_settings", "broadcasts"
   add_foreign_key "reminder_settings", "users"
-  add_foreign_key "user_broadcasts", "broadcasts"
-  add_foreign_key "user_broadcasts", "users"
 end
