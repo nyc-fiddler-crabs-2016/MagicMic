@@ -10,26 +10,26 @@ broadcast4 = Broadcast.create!(topic: "Beware the Coming of the Nice Age", speak
 broadcast5 = Broadcast.create!(topic: "MarioKart Racers: Where Are They Now?", speaker_id: 4, datetime: DateTime.new(2016, 4,6, 21,00, -5))
 
 
-UserBroadcast.create!(user_id: 2, broadcast_id: 1)
-UserBroadcast.create!(user_id: 3, broadcast_id: 1)
-UserBroadcast.create!(user_id: 4, broadcast_id: 1)
+ReminderSetting.create!(user_id: 2, broadcast_id: 1, email_reminder: true)
+ReminderSetting.create!(user_id: 3, broadcast_id: 1, text_message: true)
+ReminderSetting.create!(user_id: 4, broadcast_id: 1)
 
 
-UserBroadcast.create!(user_id: 2, broadcast_id: 2)
-UserBroadcast.create!(user_id: 3, broadcast_id: 2)
-UserBroadcast.create!(user_id: 4, broadcast_id: 2)
+ReminderSetting.create!(user_id: 2, broadcast_id: 2, email_reminder: true)
+ReminderSetting.create!(user_id: 3, broadcast_id: 2, text_message: true)
+ReminderSetting.create!(user_id: 4, broadcast_id: 2)
 
 
-UserBroadcast.create!(user_id: 2, broadcast_id: 3)
-UserBroadcast.create!(user_id: 3, broadcast_id: 3)
-UserBroadcast.create!(user_id: 4, broadcast_id: 3)
+ReminderSetting.create!(user_id: 2, broadcast_id: 3, email_reminder: true)
+ReminderSetting.create!(user_id: 3, broadcast_id: 3, text_message: true)
+ReminderSetting.create!(user_id: 4, broadcast_id: 3)
 
-UserBroadcast.create!(user_id: 1, broadcast_id: 4)
-UserBroadcast.create!(user_id: 2, broadcast_id: 4)
-UserBroadcast.create!(user_id: 3, broadcast_id: 4)
+ReminderSetting.create!(user_id: 1, broadcast_id: 4)
+ReminderSetting.create!(user_id: 2, broadcast_id: 4, email_reminder: true)
+ReminderSetting.create!(user_id: 3, broadcast_id: 4, text_message: true)
 
-UserBroadcast.create!(user_id: 1, broadcast_id: 5)
-UserBroadcast.create!(user_id: 2, broadcast_id: 5)
-UserBroadcast.create!(user_id: 3, broadcast_id: 5)
+ReminderSetting.create!(user_id: 1, broadcast_id: 5)
+ReminderSetting.create!(user_id: 2, broadcast_id: 5, email_reminder: true)
+ReminderSetting.create!(user_id: 3, broadcast_id: 5, text_message: true)
 
 broadcast5.reminder_settings.create!(user_id: 1, email_reminder: true, text_message:true)

@@ -25,9 +25,8 @@ def send_day_before
      send_email_reminder(reminder.broadcast) if reminder.email_reminder
      reminder.day_before_sent = true
      reminder.save
-   end
-
- end
+  end
+end
 
 ENV['']
 
