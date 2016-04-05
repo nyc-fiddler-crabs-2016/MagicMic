@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404193412) do
+ActiveRecord::Schema.define(version: 20160405135002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "broadcasts", force: :cascade do |t|
     t.string   "topic",                                      null: false
-    t.datetime "datetime",   default: '2016-04-05 00:22:40'
+    t.datetime "datetime",   default: '2016-04-05 14:01:40'
     t.integer  "duration",   default: 60
     t.integer  "speaker_id"
     t.datetime "created_at",                                 null: false
@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20160404193412) do
   create_table "reminder_settings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "broadcast_id"
-    t.boolean  "email_reminder", default: false
-    t.boolean  "text_message",   default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "email_reminder",   default: false
+    t.boolean  "text_message",     default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "day_before_sent",  default: false, null: false
+    t.boolean  "hour_before_sent", default: false, null: false
   end
 
   add_index "reminder_settings", ["broadcast_id"], name: "index_reminder_settings_on_broadcast_id", using: :btree

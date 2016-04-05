@@ -8,8 +8,6 @@ class Broadcast < ActiveRecord::Base
   has_many :reminder_settings
   has_many :listeners, through: :reminder_settings, source: :user
 
-
-
   def self.upcoming
     Broadcast.where("datetime > ?", DateTime.now)
   end
