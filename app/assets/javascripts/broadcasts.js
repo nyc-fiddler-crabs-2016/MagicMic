@@ -1,7 +1,5 @@
 
 function setupSocketComms() {
-
-  console.log('Sosd;oknvfoubvodfnbinfbpin');
   var socket = io.connect('http://localhost:8888');
 
   // using single socket for RTCMultiConnection signaling
@@ -166,3 +164,5 @@ $(document).ready(function(){
     setupSocketComms();
   };
 });
+
+

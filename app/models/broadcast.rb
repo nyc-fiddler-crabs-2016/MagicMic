@@ -5,8 +5,14 @@ class Broadcast < ActiveRecord::Base
   belongs_to :speaker, class_name: "User"
   has_many :user_broadcasts, dependent: :destroy
   has_many :listeners, through: :user_broadcasts, source: :user
+  has_many :reminder_settings
+  has_many :listeners, through: :reminder_settings, source: :user
 
 
+
+  def self.upcoming
+    Broadcast.where("datetime > ?", DateTime.now)
+  end
 
 
   def self.upcoming
@@ -18,7 +24,7 @@ class Broadcast < ActiveRecord::Base
   end
 
   def self.reset_broadcast_list
-    #Broadcast.where("datetime < ?", DateTime.now - 120.minutes).delete_all
+    Broadcast.where("datetime < ?", DateTime.now - 120.minutes).destroy_all
   end
 
   # def invite_list(emails)

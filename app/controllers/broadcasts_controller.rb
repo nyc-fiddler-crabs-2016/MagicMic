@@ -22,10 +22,10 @@ class BroadcastsController < ApplicationController
   end
 
   def show
-    if current_user
-      send_message
+      # send_message
     @broadcast = Broadcast.find(params[:id])
-    end
+    @reminder_settings = ReminderSetting.find_by(broadcast_id: @broadcast.id)
+    @reminder_setting = ReminderSetting.new
   end
 
   def edit
@@ -77,6 +77,7 @@ class BroadcastsController < ApplicationController
   def broadcast_params
     params.require(:broadcast).permit(:topic, :datetime, :duration).merge(speaker_id: current_user.id)
   end
+
 #take arguements for phone number and body
    def send_message
   # (phone_number, alert_message)
@@ -100,5 +101,4 @@ class BroadcastsController < ApplicationController
     puts error.message
     binding.pry
   end
-
 end
