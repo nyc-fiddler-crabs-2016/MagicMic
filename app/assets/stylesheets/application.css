@@ -41,7 +41,7 @@
 
     
 
-    background-image: url("http://static1.squarespace.com/static/54efb588e4b0387b1c1b9a9c/t/55990ca8e4b00d130d5a9fa3/1436093885682/map-of-the-world-map-abstract-painting-michael-tompsett1.jpg?format=2500w");
+    background-image: url("http://earthobservatory.nasa.gov/Features/BlueMarble/Images/srtm_ramp2.world.5400x2700.jpg");
     background-size: cover;
 
 
@@ -68,7 +68,7 @@
     margin:10px auto;
     text-align:left;
 
-    width:200px;
+    width:330px;
     top:0;
     bottom: 0;
     left: 0;
@@ -161,8 +161,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 0px auto;
-    padding: 30px;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 5px;
 
       background: white; /* For browsers that do not support gradients */
