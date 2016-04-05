@@ -30,9 +30,9 @@ class Broadcast < ActiveRecord::Base
     self.datetime.strftime("%A, %B %d, %Y at %l%p")
   end
 
-  def self.reset_broadcast_list
-    Broadcast.where("datetime < ?", DateTime.now - 120.minutes).destroy_all
-  end
+  # def self.reset_broadcast_list
+  #   Broadcast.where("datetime < ?", DateTime.now - 120.minutes).destroy_all
+  # end
 
 
   # def invite_list(emails)
