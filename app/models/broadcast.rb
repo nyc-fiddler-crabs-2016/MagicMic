@@ -11,8 +11,11 @@ class Broadcast < ActiveRecord::Base
   def self.search(search)
     if search
       Broadcast.where('topic LIKE ?', "%#{search}%")
+    else
+      Broadcast.all
     end
   end
+
 
   def self.upcoming
     Broadcast.where("datetime > ?", DateTime.now)
@@ -30,6 +33,7 @@ class Broadcast < ActiveRecord::Base
   def self.reset_broadcast_list
     Broadcast.where("datetime < ?", DateTime.now - 120.minutes).destroy_all
   end
+
 
   # def invite_list(emails)
    # array_of_emails = emails
