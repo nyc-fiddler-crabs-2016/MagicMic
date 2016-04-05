@@ -154,7 +154,7 @@
     text-align: center;
   }
 
-  #new-broadcast-form {
+  #new-broadcast-form, #new-session-form, .success {
     align-content: center;
     width:250px;
     top:0;
@@ -171,3 +171,9 @@
     background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
     background: linear-gradient(white, gray); /* Standard syntax */
   }
+
+  .success {
+    text-align: center;
+  }
+
+
