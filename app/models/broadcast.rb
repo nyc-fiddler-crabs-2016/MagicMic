@@ -10,7 +10,7 @@ class Broadcast < ActiveRecord::Base
 
   def self.search(search)
     if search
-      Broadcast.where('topic LIKE ?', "%#{search}%")
+      Broadcast.where('topic iLIKE ?', "%#{search}%")
     else
       Broadcast.all
     end
