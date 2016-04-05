@@ -2,7 +2,6 @@
 
 
 <% if @broadcasts %>
-<% Broadcast.reset_broadcast_list %>
   <% @broadcasts.each do |stream| %>
     <p><%= link_to stream.topic, broadcast_path(stream) %></p>
   <% end %>
