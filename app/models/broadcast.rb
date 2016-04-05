@@ -3,14 +3,13 @@ class Broadcast < ActiveRecord::Base
   # after_save :notify_by_email
 
   belongs_to :speaker, class_name: "User"
-  has_many :user_broadcasts, dependent: :destroy
-  has_many :listeners, through: :user_broadcasts, source: :user
-  has_many :reminder_settings
-  has_many :listeners, through: :reminder_settings, source: :user
+
+  has_many :reminder_settings, dependent: :destroy
+  has_many :audience_members, through: :reminder_settings, source: :user
 
   def self.search(search)
     if search
-      Broadcast.where('topic LIKE ?', "%#{search}%")
+      Broadcast.where('topic iLIKE ?', "%#{search}%")
     else
       Broadcast.all
     end

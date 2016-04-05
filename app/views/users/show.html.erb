@@ -1,7 +1,7 @@
 <h3><%= @user.username%>'s Upcoming Broadcasts</h3>
 
-<% if @broadcasts %>
-  <% @broadcasts.each do |stream| %>
+<% if @user.broadcasts %>
+  <% @user.broadcasts.each do |stream| %>
     <p><%= link_to stream.topic, broadcast_path(stream) %></p>
   <% end %>
 <% end %>
@@ -13,8 +13,8 @@
 
 <h3> Broadcasts you are interested in hearing </h3>
 
-<% if @saved_broadcasts %>
-  <% @saved_broadcasts.each do |stream| %>
+<% if @user.saved_broadcasts %>
+  <% @user.saved_broadcasts.each do |stream| %>
     <p><%= link_to stream.topic, broadcast_path(stream) %></p>
   <% end %>
 <% end %>

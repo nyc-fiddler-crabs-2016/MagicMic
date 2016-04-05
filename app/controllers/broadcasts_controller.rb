@@ -45,6 +45,7 @@ class BroadcastsController < ApplicationController
 
   def destroy
     broadcast = Broadcast.find(params[:id])
+    UserMailer.broadcast_cancelled(broadcast).deliver_now
     broadcast.destroy
     redirect_to root_path
   end
