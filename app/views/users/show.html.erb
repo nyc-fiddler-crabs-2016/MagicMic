@@ -11,4 +11,10 @@
 
 
 
+<h3> Broadcasts you are interested in hearing </h3>
 
+<% if @saved_broadcasts %>
+  <% @saved_broadcasts.each do |stream| %>
+    <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+  <% end %>
+<% end %>
