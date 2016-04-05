@@ -89,8 +89,8 @@ function setupSocketComms() {
   // if broadcast is available, simply join it. i.e. "join-broadcaster" event should be emitted.
   // if broadcast is absent, simply create it. i.e. "start-broadcasting" event should be fired.
   document.getElementById('open-or-join').onclick = function() {
-     var broadcastId = document.getElementById('open-or-join').dataset.room;
-     console.log('id', broadcastId);
+     var broadcastid = document.getElementById('open-or-join').dataset.room;
+     console.log('id', broadcastid);
      if (broadcastid.replace(/^\s+|\s+$/g, '').length <= 0) {
          alert('Please enter broadcast-id');
          document.getElementById('broadcast-id').focus();
@@ -100,9 +100,9 @@ function setupSocketComms() {
      this.disabled = true;
 
      connection.session = {
-         video: document.getElementById('broadcast-options').value.indexOf('Video') !== -1,
-         screen: document.getElementById('broadcast-options').value.indexOf('Screen') !== -1,
-         audio: document.getElementById('broadcast-options').value.indexOf('Audio') !== -1,
+         video: false,
+         screen: false,
+         audio: true,
          oneway: true
      };
 
