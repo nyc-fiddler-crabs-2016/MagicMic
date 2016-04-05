@@ -8,6 +8,12 @@ class Broadcast < ActiveRecord::Base
   has_many :reminder_settings
   has_many :listeners, through: :reminder_settings, source: :user
 
+  def self.search(search)
+    if search
+      Broadcast.where('topic LIKE ?', "%#{search}%")
+    end
+  end
+
   def self.upcoming
     Broadcast.where("datetime > ?", DateTime.now)
   end
