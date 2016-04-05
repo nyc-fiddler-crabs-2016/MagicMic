@@ -27,9 +27,8 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'mail.google.com',#no idea what this is supposed to be
-  user_name:            'magicmicdbc',
-  password:             'not personal pa',#set this to a ENV constant somwhere else
+  user_name:            ENV['GMAIL_USERNAME'],
+  password:             ENV['GMAIL_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true  }
 

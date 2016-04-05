@@ -8,10 +8,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    respond_to do |format|
     if @user.save
       UserMailer.welcome_email(@user).deliver_now
-
       session[:user_id] = @user.id
       redirect_to root_path
     else
@@ -19,13 +17,11 @@ class UsersController < ApplicationController
       render 'form'
     end
   end
-  end
 
   def show
     @user = User.find(params[:id])
     @broadcasts = Broadcast.upcoming.where(speaker_id: @user.id)
     @saved_broadcasts = Broadcast.find_by(id: @user.saved_broadcasts.id)
-
   end
 
   def destroy
