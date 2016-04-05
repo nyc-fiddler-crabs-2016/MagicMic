@@ -1,11 +1,17 @@
 <%= form_for @broadcast do |f| %>
 
 	<%= f.label :topic %>
+  <p>
 	<%= f.text_field :topic, autofocus: true%>
+  </p>
 	<%= f.label :datetime %>
+  <p>
 	<%= f.datetime_select :datetime %>
+  </p>
 	<%= f.label :duration %>
+  <p>
 	<%= f.text_field :duration %>
+  </p>
 	<%= f.submit :submit %>
 
 

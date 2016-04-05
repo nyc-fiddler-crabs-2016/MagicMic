@@ -1,4 +1,13 @@
-
+<div id="broadcast-index">
+<p>
+  
+</p>
+<%= form_tag broadcasts_path, method: 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 
 <% if @broadcasts %>
@@ -8,12 +17,8 @@
 <% end %>
 
 
-<%= link_to 'Schedule a Broadcast', new_broadcast_path %>
 
-<%= form_tag broadcasts_path, method: 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
 
+
+
+</div>

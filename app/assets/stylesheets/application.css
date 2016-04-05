@@ -13,3 +13,153 @@
  *= require_tree .
  *= require_self
  */
+
+ *{
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+
+  }
+
+  html {
+      height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  nav {
+    background: #9a9a9a;
+    margin: 0 auto;
+    padding: 10px;
+    align-content: center;
+    width: 100%;
+    display: block;
+    font-weight: bold;
+  }
+
+  body {
+
+    
+
+  /*  background-image: url("http://static.internetblog.org.uk/files/world_map_3.jpg");
+    background-size: cover;
+*/
+
+  }
+
+
+
+
+  #app-name-head {
+    font-size: 50px;
+    text-align: center;
+    vertical-align: center;
+    
+  }
+
+  #broadcast-time-header {
+    font-style: italic;
+  }
+
+
+
+  #broadcast-index {
+    padding: 20px;
+    margin:10px auto;
+    text-align:left;
+
+    width:200px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, gray); /* Standard syntax */
+
+    border-radius: 5px;
+  }
+
+  .broadcast-show-page {
+    padding: 20px;
+    margin:10px auto;
+    text-align:center;
+
+    width:450px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, gray); /* Standard syntax */
+
+    border-radius: 5px;
+  }
+
+
+  #nav {
+      color: #E0E0E0 ;
+      border:1px solid #000000;
+      border-width: 1px 0;
+      list-style:none;
+      margin:0;
+      padding:0;
+      text-align:center;
+      overflow: hidden;
+      background-color: #333;
+  }
+  #nav li {
+      display:inline;
+
+  }
+  #nav a {
+      display:inline-block;
+      padding:10px;
+  }
+
+/*  #nav a:active {
+    color: #FFFAF0;
+    background-color: #111;
+  }*/
+
+  #nav a:visited {
+      color: #FFFAF0;
+    }
+
+  #nav a:hover {
+    /*color: #00FFFF;*/
+    background-color: #111;
+  }
+
+  
+
+
+
+  #new-broadcast-heading {
+    text-align: center;
+  }
+
+  #new-broadcast-form {
+    align-content: center;
+    width:250px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    padding: 30px;
+    border-radius: 5px;
+
+      background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, gray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, gray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, gray); /* Standard syntax */
+  }
