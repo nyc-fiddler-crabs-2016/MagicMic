@@ -51,6 +51,9 @@ include ApplicationHelper
       emailable_users.each do |user|
         UserMailer.broadcast_updated(@broadcast, user).deliver_now
       end
+      textable_users.each do |user|
+        UserTexter.send_message(user, event_type)
+      end
       redirect_to :root
     else
       redirect_to :back
@@ -60,13 +63,16 @@ include ApplicationHelper
   def destroy
     # binding.pry
     @broadcast = Broadcast.find(params[:id])
-      emailable_users, textable_users = User.remindable(@broadcast)
-      emailable_users.each do |user|
-          UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
-      end
-      @broadcast.destroy
-      redirect_to :root
+    emailable_users, textable_users = User.remindable(@broadcast)
+    emailable_users.each do |user|
+        UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
     end
+    textable_users.each do |user|
+        UserTexter.send_message(user, event_type)
+    end
+    @broadcast.destroy
+    redirect_to :root
+  end
 
   # def belongs_to_current_user?
   #   binding.pry

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160404193412) do
 
   create_table "broadcasts", force: :cascade do |t|
     t.string   "topic",                                      null: false
-    t.datetime "datetime",   default: '2016-04-06 02:00:26'
+    t.datetime "datetime",   default: '2016-04-06 15:08:51'
     t.integer  "duration",   default: 60
     t.integer  "speaker_id"
     t.datetime "created_at",                                 null: false

@@ -1,22 +1,35 @@
-require "#{Rails.root}/app/helpers/application_helper"
+# require "#{Rails.root}/app/helpers/application_helper"
 # include ApplicationHelper
 
 namespace :reminders do
-  desc "TODO"
+  desc "SEND DAILY REMINDERS"
+
   task daily: :environment do
      broadcasts = Broadcast.a_day_away
         broadcasts.each do |broadcast|
+          emailable_users, textable_users = User.remindable(@broadcast)
+          emailable_users.each do |user|
+            UserMailer.hour_of_reminder(broadcast, user).deliver_now
+          end
+          textable_users.each do |user|
+              UserTexter.send_message(user, event_type)
+          end
           # reminder_settings.where(day_before_sent:false)
-          UserMailer.day_before_reminder(broadcast)
         end
      end
 
-  desc "TODO"
+  desc "SEND HOURLY REMINDERS"
   task hourly: :environment do
     broadcasts = Broadcast.an_hour_away
     broadcasts.each do |broadcast|
+      emailable_users, textable_users = User.remindable(@broadcast)
+      emailable_users.each do |user|
+        UserMailer.hour_of_reminder(broadcast, user).deliver_now
+      end
+      textable_users.each do |user|
+        UserTexter.send_message(user, event_type)
+      end
       # reminder_settings.where(hour_before_sent:false)
-      UserMailer.hour_of_reminder(broadcast)
     end
   end
 

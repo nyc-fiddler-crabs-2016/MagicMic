@@ -30,6 +30,10 @@ config.action_mailer.smtp_settings = {
   authentication:       'plain',
   enable_starttls_auto: true  }
 
+  #-------------------
+  config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
+
+
 
 
 
