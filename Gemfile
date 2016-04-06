@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'mailcatcher'
 gem 'twilio-ruby'
 gem 'google-api-client'
+gem 'mail'
 
 
 
@@ -38,7 +39,7 @@ gem 'google-api-client'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-gem 'twilio-ruby'
+  gem 'twilio-ruby'
   gem 'pry-rails'
   gem 'faker'
   gem 'factory_girl_rails'
@@ -48,6 +49,7 @@ gem 'twilio-ruby'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'whenever'
+
 end
 
 group :development do

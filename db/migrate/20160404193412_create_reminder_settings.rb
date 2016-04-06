@@ -6,6 +6,8 @@ class CreateReminderSettings < ActiveRecord::Migration
       t.references :broadcast, index: true, foreign_key: true
       t.boolean    :email_reminder, default: false
       t.boolean    :text_message, default: false
+      t.boolean    :day_before_sent, null: false, default: false
+      t.boolean    :hour_before_sent, null: false, default: false
 
       t.timestamps null: false
     end

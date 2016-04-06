@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160404193412) do
 
   create_table "broadcasts", force: :cascade do |t|
     t.string   "topic",                                      null: false
-    t.datetime "datetime",   default: '2016-04-05 01:08:25'
+    t.datetime "datetime",   default: '2016-04-06 02:00:26'
     t.integer  "duration",   default: 60
     t.integer  "speaker_id"
     t.datetime "created_at",                                 null: false
@@ -28,35 +28,26 @@ ActiveRecord::Schema.define(version: 20160404193412) do
   create_table "reminder_settings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "broadcast_id"
-    t.boolean  "email_reminder", default: false
-    t.boolean  "text_message",   default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "email_reminder",   default: false
+    t.boolean  "text_message",     default: false
+    t.boolean  "day_before_sent",  default: false, null: false
+    t.boolean  "hour_before_sent", default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "reminder_settings", ["broadcast_id"], name: "index_reminder_settings_on_broadcast_id", using: :btree
   add_index "reminder_settings", ["user_id"], name: "index_reminder_settings_on_user_id", using: :btree
 
-  create_table "user_broadcasts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "broadcast_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "user_broadcasts", ["broadcast_id"], name: "index_user_broadcasts_on_broadcast_id", using: :btree
-  add_index "user_broadcasts", ["user_id"], name: "index_user_broadcasts_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
-    t.string   "username"
-    t.string   "password_digest"
-    t.string   "email"
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
+    t.string   "email",           null: false
+    t.string   "phone_number"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "reminder_settings", "broadcasts"
   add_foreign_key "reminder_settings", "users"
-  add_foreign_key "user_broadcasts", "broadcasts"
-  add_foreign_key "user_broadcasts", "users"
 end

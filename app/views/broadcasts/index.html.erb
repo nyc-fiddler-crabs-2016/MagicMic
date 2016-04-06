@@ -1,20 +1,22 @@
-
-
-
-<% if @broadcasts %>
-<% Broadcast.reset_broadcast_list %>
-  <% @broadcasts.each do |stream| %>
-    <p><%= link_to stream.topic, broadcast_path(stream) %></p>
-  <% end %>
-<% end %>
-
-
-<%= link_to 'Schedule a Broadcast', new_broadcast_path %>
-
-
+<div id="broadcast-index">
+<h2>Upcoming Broadcasts</h2>
 <%= form_tag broadcasts_path, method: 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+
+
+<% if @broadcasts %>
+  <% @broadcasts.each do |stream| %>
+    <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+</div>
