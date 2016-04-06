@@ -1,3 +1,5 @@
+<div class="user-broadcast-page">
+
 <h3><%= @user.username%>'s Upcoming Broadcasts</h3>
 
 <% if @user.broadcasts %>
@@ -18,3 +20,4 @@
     <p><%= link_to stream.topic, broadcast_path(stream) %></p>
   <% end %>
 <% end %>
+</div>

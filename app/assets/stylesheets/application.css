@@ -69,7 +69,7 @@
 
 
 
-  #broadcast-index, .broadcast-show-page, #new-session-form, #new-broadcast-form, #update-broadcast-form, .success {
+  #broadcast-index, .broadcast-show-page, #new-session-form, #new-broadcast-form, #update-broadcast-form, .success, .user-broadcast-page{
     padding: 20px;
     margin: 30px auto;
     text-align:left;
@@ -112,6 +112,7 @@
 
   }
   #nav a {
+      color: #FFFAF0;
       display:inline-block;
       padding:10px;
   }
@@ -121,7 +122,7 @@
     background-color: #111;
   }*/
 
-  a:visited {
+  a, a:visited {
     color: #000000;
   }
 
