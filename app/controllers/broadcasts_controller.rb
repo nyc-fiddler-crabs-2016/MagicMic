@@ -5,7 +5,6 @@ include ApplicationHelper
  before_action :ensure_ownership, only:[:edit,:update,:destroy]
 
  def index
-    # @broadcasts = Broadcast.all
     @broadcasts = Broadcast.search(params[:search])
   end
 
@@ -28,7 +27,6 @@ include ApplicationHelper
   end
 
   def show
-      # send_message
     if broadcast_exists?
       @broadcast = Broadcast.find(params[:id])
       @reminder_settings = ReminderSetting.find_by(broadcast_id: @broadcast.id)
@@ -52,7 +50,6 @@ include ApplicationHelper
       end
 
       textable_users.each do |user|
-        binding.pry
         UserTexter.send_message(user)
       end
       redirect_to :root
@@ -64,7 +61,6 @@ include ApplicationHelper
   def destroy
     @broadcast = Broadcast.find(params[:id])
     emailable_users, textable_users = User.remindable(@broadcast)
-
      emailable_users.each do |user|
         UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
     end
@@ -76,13 +72,7 @@ include ApplicationHelper
     redirect_to :root
   end
 
-  # def belongs_to_current_user?
-  #   binding.pry
-  #   current_user.id == self.speaker_id
-  # end
-
   def ensure_ownership
-    # binding.pry
     @broadcast = Broadcast.find(params[:id])
     unless current_user.id == @broadcast.speaker_id
       flash.alert = "Try again"
