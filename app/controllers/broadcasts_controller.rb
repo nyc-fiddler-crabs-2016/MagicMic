@@ -4,8 +4,7 @@ class BroadcastsController < ApplicationController
 include ApplicationHelper
  before_action :ensure_ownership, only:[:edit,:update,:destroy]
 
-
-  def index
+ def index
     # @broadcasts = Broadcast.all
     @broadcasts = Broadcast.search(params[:search])
   end
@@ -51,8 +50,10 @@ include ApplicationHelper
       emailable_users.each do |user|
         UserMailer.broadcast_updated(@broadcast, user).deliver_now
       end
+
       textable_users.each do |user|
-        UserTexter.send_message(user, event_type)
+        binding.pry
+        UserTexter.send_message(user)
       end
       redirect_to :root
     else
@@ -61,14 +62,15 @@ include ApplicationHelper
   end
 
   def destroy
-    # binding.pry
     @broadcast = Broadcast.find(params[:id])
     emailable_users, textable_users = User.remindable(@broadcast)
-    emailable_users.each do |user|
+
+     emailable_users.each do |user|
         UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
     end
+
     textable_users.each do |user|
-        UserTexter.send_message(user, event_type)
+        UserTexter.send_message(user)
     end
     @broadcast.destroy
     redirect_to :root
@@ -95,8 +97,6 @@ include ApplicationHelper
   def broadcast_exists?
     current_broadcast != nil
   end
-
-
 
   private
 

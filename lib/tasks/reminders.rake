@@ -12,7 +12,7 @@ namespace :reminders do
             UserMailer.hour_of_reminder(broadcast, user).deliver_now
           end
           textable_users.each do |user|
-              UserTexter.send_message(user, event_type)
+              UserTexter.send_message(user)
           end
           # reminder_settings.where(day_before_sent:false)
         end
@@ -27,7 +27,7 @@ namespace :reminders do
         UserMailer.hour_of_reminder(broadcast, user).deliver_now
       end
       textable_users.each do |user|
-        UserTexter.send_message(user, event_type)
+        UserTexter.send_message(user)
       end
       # reminder_settings.where(hour_before_sent:false)
     end
