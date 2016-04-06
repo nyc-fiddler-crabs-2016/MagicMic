@@ -21,10 +21,14 @@
 
 # 03 * * * * cd /Desktop/gary/MagicMic && /Users/apprentice/.rbenv/shims/rake exec rake reminders:text
 
-every '03 * * * *' do
-  command "rake 'reminders:text'"
+# every '03 * * * *' do
+#   command "rake 'reminders:text'"
+# end
+
+every 1.day do
+  rake "reminders:daily"
 end
 
-every 1.minutes do
-  rake "reminders:text"
+every 1.hour do
+  rake "reminders:hourly"
 end
