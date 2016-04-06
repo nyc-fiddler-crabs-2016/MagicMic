@@ -45,9 +45,10 @@
   body {
 
     
-
-    background-image: url("http://earthobservatory.nasa.gov/Features/BlueMarble/Images/srtm_ramp2.world.5400x2700.jpg");
+    background-color: #000000;
+    background-image: url("background.jpg");
     background-size: cover;
+    background-attachment: fixed;
 
 
   }
@@ -68,7 +69,7 @@
 
 
 
-  #broadcast-index, .broadcast-show-page, #new-broadcast-form, #new-session-form, .success {
+  #broadcast-index, .broadcast-show-page, #new-session-form, #new-broadcast-form, #update-broadcast-form, .success {
     padding: 20px;
     margin: 30px auto;
     text-align:left;
@@ -145,6 +146,15 @@
     text-align: center;
   }
 
+
+  #open-or-join {
+    background-image: url("play.png");
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-attachment: center;
+    border-radius: 40px;
+  }
 
 
   .success {
