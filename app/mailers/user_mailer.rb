@@ -65,6 +65,6 @@ default from: 'notifications@magicmikedbc.com'
 
 
 
- 
+
 end
 

@@ -31,6 +31,11 @@ class Broadcast < ActiveRecord::Base
   def readable_time
     self.datetime.strftime("%A, %B %d, %Y at %l%p")
   end
+
+  # def self.belongs_to_current_user?
+  #   current_user == self.speaker
+  #   binding.pry
+  # end
 end
 
 

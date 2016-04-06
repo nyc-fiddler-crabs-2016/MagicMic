@@ -5,12 +5,18 @@
 <h3 id="broadcast-time-header"><%= @broadcast.readable_time %></h3>
 <p>
 <% if @broadcast.speaker == current_user %>
+  <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %> 
+   | 
   <%= link_to "Cancel This Broadcast", broadcast_path(@broadcast), method: :delete %>
-  <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %>
-  <%= render 'mic' %>
+    <p>
+    <%= image_tag("mic.png")%>
+    </p>
+  
 
 <% else %>
-  <%= render 'play' %>
+  <p>
+    <%= image_tag("listen.png")%>
+  </p>
 <% end %>
 </p>
 
@@ -20,7 +26,7 @@
 <div id="videos-container"></div>
 <p>
 </p>
-<button id="open-or-join" data-room="room<%=@broadcast.id%>">Open or join</button>
+<button id="open-or-join" data-room="room<%=@broadcast.id%>"> </button>
 <div id ="broadcast-id"><%=@broadcast.id%></div>
 
 <div id="reminder_signup">

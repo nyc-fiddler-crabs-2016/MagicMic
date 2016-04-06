@@ -36,3 +36,19 @@ end
 every 1.hour do
   rake "reminders:hourly"
 end
+
+every :sunday, :at => '9am' do
+  rake "reminders:daily"
+end
+
+every :hour do
+  rake "reminders:hourly"
+end
+
+every 30.minutes do
+  rake "reminders:hourly"
+end
+
+every '10 * * * *' do
+  rake 'reminders:hourly'
+end

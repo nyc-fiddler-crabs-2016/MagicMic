@@ -89,6 +89,7 @@ function setupSocketComms() {
   // if broadcast is available, simply join it. i.e. "join-broadcaster" event should be emitted.
   // if broadcast is absent, simply create it. i.e. "start-broadcasting" event should be fired.
   document.getElementById('open-or-join').onclick = function() {
+      $(this).hide();
      var broadcastid = document.getElementById('open-or-join').dataset.room;
      console.log('id', broadcastid);
      if (broadcastid.replace(/^\s+|\s+$/g, '').length <= 0) {
