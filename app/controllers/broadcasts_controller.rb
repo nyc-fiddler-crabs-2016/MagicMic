@@ -41,6 +41,9 @@ include ApplicationHelper
       emailable_users.each do |user|
         UserMailer.broadcast_updated(@broadcast, user).deliver_now
       end
+      textable_users.each do |user|
+        UserTexter.send_message(user, event_type)
+      end
       redirect_to :root
     else
       redirect_to :back
@@ -52,8 +55,11 @@ include ApplicationHelper
     emailable_users, textable_users = User.remindable(@broadcast)
     emailable_users.each do |user|
         UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
-    @broadcast.destroy
     end
+    textable_users.each do |user|
+        UserTexter.send_message(user, event_type)
+    end
+    @broadcast.destroy
     redirect_to :root
   end
 

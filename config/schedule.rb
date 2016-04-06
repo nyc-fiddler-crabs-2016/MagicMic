@@ -25,6 +25,10 @@
 #   command "rake 'reminders:text'"
 # end
 
+00 09 * * * # 9AM every day
+
+00 * * * * #every hour on the hour
+
 every 1.day do
   rake "reminders:daily"
 end

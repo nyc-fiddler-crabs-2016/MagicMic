@@ -1,7 +1,7 @@
-user1 = User.create!(username: "steve", email: "thefirststevedave@gmail.com", password: "password")
+user1 = User.create!(username: "steve", email: "thefirststevedave@gmail.com", phone_number: "5516554201", password: "password")
 user2 = User.create!(username: "steve2", email: "thesecondstevedave@gmail.com", password: "password")
-user3 = User.create!(username: "steve3", email: "thethirdstevedave@gmail.com", password: "password")
-user4 = User.create!(username: "mattgaryjoe", email: "mattgaryjoe@gmail.com", password: "password")
+user3 = User.create!(username: "steve3", email: "thethirdstevedave@gmail.com", phone_number: "4155598988", password: "password")
+user4 = User.create!(username: "mattgaryjoe", email: "mattgaryjoe@gmail.com", phone_number: "9175547210", password: "password")
 
 broadcast1 = Broadcast.create!(topic: "The State of the Onion", speaker_id: 1 )
 broadcast2 = Broadcast.create!(topic: "Rails Magic and How to Use It", speaker_id: 1 )
