@@ -14,9 +14,12 @@ class User < ActiveRecord::Base
     [emailable_users, textable_users]
    end
 
-   def self.get_requesters(broadcast, reminder_type)
-     broadcast.audience_members.includes(:reminder_settings).where(reminder_settings:{reminder_type => true})
-   end
+  def self.get_requesters(broadcast, reminder_type)
+   broadcast.audience_members.includes(:reminder_settings).where(reminder_settings:{reminder_type => true})
+  end
 
+  def user_owns?
+    broadcast.speaker == self
+  end
 
 end

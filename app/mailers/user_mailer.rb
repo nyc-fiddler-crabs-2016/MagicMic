@@ -25,6 +25,12 @@ default from: 'notifications@magicmikedbc.com'
   end
 
   def day_before_reminder(broadcast, user)
+
+     @broadcast = broadcast
+    @user = user
+    email_with_name = %("#{@user.username}"<#{@user.email}>)
+    mail(to: email_with_name,
+         subject: "YAY IT WORKED")
     # build_and_send_reminders(broadcast, :day_before_reminder)
   end
 
