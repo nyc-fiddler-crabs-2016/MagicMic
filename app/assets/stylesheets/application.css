@@ -68,7 +68,7 @@
 
 
 
-  #broadcast-index, .broadcast-show-page, #new-broadcast-form, #new-session-form, .success {
+  #broadcast-index, .broadcast-show-page, #new-session-form, #new-broadcast-form, #update-broadcast-form, .success {
     padding: 20px;
     margin: 30px auto;
     text-align:left;
