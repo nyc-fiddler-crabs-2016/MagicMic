@@ -29,11 +29,13 @@
 
 # 00 * * * * every hour on the hour
 
+set :environment, 'development'
+
 every 1.day do
   rake "reminders:daily"
 end
 
-every 1.hour do
+every 1.minute do
   rake "reminders:hourly"
 end
 
@@ -53,7 +55,7 @@ every '10 * * * *' do
   rake 'reminders:hourly'
 end
 
-every :wednesday, :at => '3:11pm' do
+every :wednesday, :at => '6:08pm' do
   rake "reminders:hourly"
   rake "reminders:daily"
 end
