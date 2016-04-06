@@ -4,15 +4,15 @@ default from: 'notifications@magicmikedbc.com'
   TEXT_MESSAGE_BODY = {
     hour_of_reminder: "Greetings from MagicMic! Your broadcast starts in an hour",
     day_before_reminder: "Greetings from MagicMic! You have a saved broadcast tomorrow",
-    broadcast_cancelled: "Greetings from MagicMic! The broadcast you saved, #{@broadcast.topic}, has been cancelled,"
-    broadast_updated: "Greetings from MagicMic! A broadcast you saved has been changed"
+    broadast_updated: "Greetings from MagicMic! A broadcast you saved has been changed",
+    broadcast_cancelled: "Greetings from MagicMic! The broadcast you saved,  has been cancelled,"#{broadcast.topic},
   }
 
   EMAIL_SUBJECTS = {
     hour_of_reminder: "Your broadcast starts in an hour",
     day_before_reminder: "You have a saved broadcast tomorrow",
-    broadast_updated: "#{broadcast.topic} updated",
-    broadcast_cancelled: "#{broadcast.topic} cancelled"
+    broadast_updated: "updated",#{broadcast.topic}
+    broadcast_cancelled: " cancelled"#{broadcast.topic}
   }
 
   def welcome_email(user)
@@ -27,7 +27,7 @@ default from: 'notifications@magicmikedbc.com'
     build_and_send_reminders(broadcast, :day_before_reminder)
   end
 
-  def hour_of_reminder
+  def hour_of_reminder(broadcast)
    build_and_send_reminders(broadcast, :hour_of_reminder)
   end
 
@@ -44,6 +44,7 @@ private
   def build_and_send_reminders(broadcast, event_type)
     @broadcast = broadcast
     emailable_users, textable_users = User.remindable(@broadcast)
+
     emailable_users.each do |user|
       email_with_name = %("#{user.username}"<#{user.email}>)
       mail(to: email_with_name,
@@ -52,6 +53,7 @@ private
 
     textable_users.each do |user|
       send_message(user, event_type)
+    end
   end
 
   def send_message(user, event_type)
