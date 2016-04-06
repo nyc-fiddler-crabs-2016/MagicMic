@@ -47,9 +47,9 @@ include ApplicationHelper
   end
 
   def destroy
-    broadcast = Broadcast.find(params[:id])
-    UserMailer.broadcast_cancelled(broadcast)
-    broadcast.destroy
+    @broadcast = Broadcast.find(params[:id])
+    UserMailer.broadcast_cancelled(@broadcast)
+    @broadcast.destroy
     redirect_to root_path
   end
 
@@ -62,20 +62,6 @@ include ApplicationHelper
   #     flash.alert = "Try again"
   #     redirect_to root_path
   #   end
-  # end
-
-  # def trigger_sms_alert
-
-  #   @users = User.all
-  #   @message = "Hey! You have a broadcast at #{broadcast.readable_time}"
-
-  #   if user.id.upcoming && user.broadcast
-  #     send_message
-  #   end
-
-  #   @user.each do |user|
-
-
   # end
 
   private
