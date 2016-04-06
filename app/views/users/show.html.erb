@@ -1,23 +1,25 @@
 <div class="user-broadcast-page">
 
-<h3><%= @user.username%>'s Upcoming Broadcasts</h3>
+  <h3><%= @user.username%>'s Upcoming Broadcasts</h3>
 
-<% if @user.broadcasts %>
-  <% @user.broadcasts.each do |stream| %>
-    <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+  <% if @user.broadcasts%>
+    <% @user.broadcasts.each do |stream| %>
+      <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= link_to 'Schedule a Broadcast', new_broadcast_path %>
-
+  <%= link_to 'Schedule a Broadcast', new_broadcast_path %>
 
 
 
-<h3> Broadcasts you are interested in hearing </h3>
 
-<% if @user.saved_broadcasts %>
-  <% @user.saved_broadcasts.each do |stream| %>
-    <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+  <h3> Broadcasts you are interested in hearing </h3>
+
+  <% if @user.saved_broadcasts %>
+    <% @user.saved_broadcasts.each do |stream| %>
+      <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+    <% end %>
   <% end %>
-<% end %>
+
+
 </div>
