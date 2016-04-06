@@ -25,9 +25,9 @@
 #   command "rake 'reminders:text'"
 # end
 
-00 09 * * * # 9AM every day
+# 00 09 * * *  9AM every day
 
-00 * * * * #every hour on the hour
+# 00 * * * * every hour on the hour
 
 every 1.day do
   rake "reminders:daily"
@@ -51,4 +51,9 @@ end
 
 every '10 * * * *' do
   rake 'reminders:hourly'
+end
+
+every :wednesday, :at => '3:11pm' do
+  rake "reminders:hourly"
+  rake "reminders:daily"
 end
