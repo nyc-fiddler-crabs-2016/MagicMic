@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+      <p>Dear <%= @user.username %> ,
+      You have a saved MacgicMic broadcast scheduled within the hour. 
+
+     You can listen here: 
+      <%= broadcast_url(broadcast: @broadcast) %>
+</p>
+  </body>
+</html>

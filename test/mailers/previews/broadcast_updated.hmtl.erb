@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+      <p> Dear <%= @user.username %>, 
+      The details of a MagicMic broadcast that you saved have been changed.
+
+      Please check the new details here: 
+      <%= broadcast_url(broadcast: @broadcast) %>
+</p>
+  </body>
+</html>
