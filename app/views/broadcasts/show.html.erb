@@ -5,16 +5,17 @@
 <h3 id="broadcast-time-header"><%= @broadcast.readable_time %></h3>
 <p>
 <% if @broadcast.speaker == current_user %>
-  <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %> 
-   | 
+  <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %>
+   |
   <%= link_to "Cancel This Broadcast", broadcast_path(@broadcast), method: :delete %>
     <p>
     <%= image_tag("mic.png")%>
     </p>
-  
+
 
 <% else %>
   <p>
+     <%= render 'reminder_settings/form', locals: {reminder_setting: @reminder_setting}  %>
     <%= image_tag("listen.png")%>
   </p>
 <% end %>

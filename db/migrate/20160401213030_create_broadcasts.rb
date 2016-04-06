@@ -4,7 +4,7 @@ class CreateBroadcasts < ActiveRecord::Migration
   def change
     create_table :broadcasts do |t|
       t.string :topic, null: false
-      t.datetime :datetime, default: DateTime.now
+      t.datetime :datetime, default: DateTime.now + 75.minutes
       t.integer :duration, default: 60
       t.references :speaker
 
