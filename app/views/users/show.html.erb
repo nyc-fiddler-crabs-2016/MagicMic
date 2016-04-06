@@ -1,6 +1,6 @@
 <div class="page-and-form">
 
-  <h3><%= @user.username%>'s Upcoming Broadcasts</h3>
+  <h3>Your Scheduled Broadcasts</h3>
 
   <% if @user.broadcasts%>
     <% @user.broadcasts.each do |stream| %>
@@ -8,12 +8,7 @@
     <% end %>
   <% end %>
 
-  <%= link_to 'Schedule a Broadcast', new_broadcast_path %>
-
-
-
-
-  <h3> Broadcasts you are interested in hearing </h3>
+  <h3> Your Saved Broadcasts </h3>
 
   <% if @user.saved_broadcasts %>
     <% @user.saved_broadcasts.each do |stream| %>
