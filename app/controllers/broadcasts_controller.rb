@@ -48,6 +48,7 @@ include ApplicationHelper
       emailable_users.each do |user|
         UserMailer.broadcast_updated(@broadcast, user).deliver_now
       end
+
       textable_users.each do |user|
         UserTexter.send_message(user)
       end
@@ -63,6 +64,7 @@ include ApplicationHelper
      emailable_users.each do |user|
         UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
     end
+
     textable_users.each do |user|
         UserTexter.send_message(user)
     end
