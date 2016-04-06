@@ -27,13 +27,15 @@
     background-attachment: fixed;
   }
 
-  nav {
+  nav, .page-and-form h3{
     margin: auto;
     padding: 10px;
     align-content: center;
     width: 100%;
     display: block;
     font-weight: bold;
+
+
 
     background: white; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(gray, white); /* For Safari 5.1 to 6.0 */
@@ -42,9 +44,12 @@
     background: linear-gradient(gray, white); /* Standard syntax */
   }
 
+  .page-and-form h3{
+      text-decoration: underline;
+  }
   body {
 
-    
+
     background-color: #000000;
     background-image: url("background.jpg");
     background-size: cover;
@@ -60,7 +65,7 @@
     font-size: 50px;
     text-align: center;
     vertical-align: center;
-    
+
   }
 
   #broadcast-time-header {
@@ -97,9 +102,7 @@
     text-align:center;
   }
 
-
-
-  #nav {
+#nav {
       color: #E0E0E0 ;
       border:1px solid #000000;
       border-width: 1px 0;
@@ -142,9 +145,6 @@
     background-color: #111;
   }
 
-  
-
-
 
   #new-broadcast-heading {
     text-align: center;
@@ -157,7 +157,8 @@
     height: 100px;
     background-size: cover;
     background-attachment: center;
-    border-radius: 40px;
+    border-radius: 100px;
+    border: 5px double gray;
   }
 
 

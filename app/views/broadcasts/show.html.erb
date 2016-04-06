@@ -11,11 +11,13 @@
     <p>
     <%= image_tag("mic.png")%>
     </p>
-
-
 <% else %>
   <p>
      <%= render 'reminder_settings/form', locals: {reminder_setting: @reminder_setting}  %>
+    <div id="reminder_signup">
+  <button>Save</button>
+
+</div>
     <%= image_tag("listen.png")%>
   </p>
 <% end %>
@@ -30,10 +32,5 @@
 <button id="open-or-join" data-room="room<%=@broadcast.id%>"> </button>
 <div id ="broadcast-id"><%=@broadcast.id%></div>
 
-  <%= render 'reminder_settings/form', locals: {reminder_setting: @reminder_setting}  %>
 
-<div id="reminder_signup">
-  <button>Save</button>
-
-</div>
 </div>

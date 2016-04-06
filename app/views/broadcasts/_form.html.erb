@@ -6,7 +6,7 @@
   </p>
 	<%= f.label :datetime %>
   <p>
-	<%= f.datetime_select :datetime %>
+	<%= f.datetime_select :datetime, order: [:day, :month, :year] %>
   </p>
 	<%= f.label :duration %>
   <p>
