@@ -14,7 +14,7 @@
  *= require_self
  */
 
- *{
+ * {
   font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
 
@@ -69,10 +69,10 @@
 
 
 
-  #broadcast-index, .broadcast-show-page, #new-session-form, #new-broadcast-form, #update-broadcast-form, .success {
+
+  .page-and-form, .success, .broadcast-show-page{
     padding: 20px;
     margin: 30px auto;
-    text-align:left;
 
     width:330px;
     top:0;
@@ -89,11 +89,14 @@
     border-radius: 5px;
   }
 
+  .page-and-form, .success {
+    text-align:left
+  }
+
   .broadcast-show-page {
     text-align:center;
-
-    width:450px;
   }
+
 
 
   #nav {
@@ -112,6 +115,7 @@
 
   }
   #nav a {
+      color: #FFFAF0;
       display:inline-block;
       padding:10px;
   }
@@ -121,7 +125,7 @@
     background-color: #111;
   }*/
 
-  a:visited {
+  a, a:visited {
     color: #000000;
   }
 
