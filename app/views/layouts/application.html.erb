@@ -7,28 +7,34 @@
   <script src="http://localhost:8888/RTCMultiConnection.js"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
 <header>
   <nav>
-   <ul>
+  <div id="app-name-head">MagicMic</div>
+   <ul id="nav">
     <% if current_user %>
-      <li><%= link_to "Logout", logout_path, method: :delete %></li>
-      <li><%= link_to "My Upcoming Broadcasts", user_path(current_user) %></li>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li> | 
+      <li><%= link_to "My Upcoming Broadcasts", user_path(current_user) %></li> | 
     <% else %>
-      <li><%= link_to "Login", new_login_path %></li>
-      <li><%= link_to "Signup", new_user_path %></li>
+      <li><%= link_to "Login", new_login_path %></li> | 
+      <li><%= link_to "Signup", new_user_path %></li> | 
     <% end %>
+    <li><a href="/">Broadcasts</a></li> | 
+    <li><%= link_to 'Schedule a Broadcast', new_broadcast_path %></li>
   </ul>
   </nav>
 </header>
- <li><a href="/">Broadcasts</a></li>
+
+ <div id="greeting">
  <% if flash.any? %>
    <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end %>
   <% end %>
+  </div>
 
 
 <%= yield %>

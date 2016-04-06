@@ -1,21 +1,27 @@
-<h1 id="broadcast-show-header" ><%= @broadcast.topic %></h1>
-<h3><%= @broadcast.readable_time %></h3>
+<div class="broadcast-show-page">
 
+<h1 id="broadcast-show-header" ><%= @broadcast.topic %></h1>
+
+<h3 id="broadcast-time-header"><%= @broadcast.readable_time %></h3>
+<p>
 <% if @broadcast.speaker == current_user %>
   <%= link_to "Cancel This Broadcast", broadcast_path(@broadcast), method: :delete %>
-  <%= render 'megaphone' %>
+  <%= render 'mic' %>
 <% else %>
-  <%= render 'headphones' %>
+  <%= render 'play' %>
 <% end %>
+</p>
 
 
 
 
 <div id="videos-container"></div>
+<p>
+</p>
 <button id="open-or-join" data-room="room<%=@broadcast.id%>">Open or join</button>
 <div id ="broadcast-id"><%=@broadcast.id%></div>
 
 <div id="reminder_signup">
   <button>Save</button>
 </div>
-
+</div>
