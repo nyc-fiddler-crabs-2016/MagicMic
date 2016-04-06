@@ -34,19 +34,23 @@ default from: 'notifications@magicmikedbc.com'
   end
 
   def broadcast_updated(broadcast, user)
-    @broadcast = broadcast
-    @user = user
-    email_with_name = %("#{@user.username}"<#{@user.email}>)
-    mail(to: email_with_name,
-         subject: "A MagicMic broadcast you saved has been changed")
+    subject =  "A MagicMic broadcast you saved has been changed"
+    do_mailing(broadcast, user, subject)
   end
 
   def broadcast_cancelled(broadcast, user)
+    subject = "Upcoming Broadcast #{broadcast.topic} Cancelled"
+    do_mailing(broadcast, user, subject)
+  end
+
+  private
+
+  def do_mailing(broadcast, user, subject)
       @broadcast = broadcast
       @user = user
       email_with_name = %("#{@user.username}"<#{@user.email}>)
       mail(to: email_with_name,
-         subject: "Upcoming Broadcast #{broadcast.topic} Cancelled")
+         subject: subject)
   end
 
   # def build_and_send_reminders(broadcast, event_type)
@@ -57,6 +61,24 @@ default from: 'notifications@magicmikedbc.com'
   #   textable_users.each do |user|
   #     UserTexter.send_message(user, event_type)
   #   end
+  # end
+
+  # def build_and_send_reminders(broadcast, event_type)
+  #   emailable_users, textable_users = User.remindable(broadcast)
+  #   emailable_users.each do |user|
+  #      UserMailer.email_helper(broadcast, user, event_type).deliver_now
+  #    end
+  #   textable_users.each do |user|
+  #     UserTexter.send_message(user, event_type)
+  #   end
+  # end
+
+  # def email_helper(broadcast, user, event_type)
+  #   @broadcast = broadcast
+  #     @user = user
+  #     email_with_name = %("#{@user.username}"<#{@user.email}>)
+  #     mail(to: email_with_name,
+  #        subject: EMAIL_SUBJECTS[event_type])
   # end
 
   # build_and_send_reminders(broadcast, :day_before_reminder)

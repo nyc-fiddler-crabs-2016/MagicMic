@@ -29,7 +29,6 @@ include ApplicationHelper
   def show
     if broadcast_exists?
       @broadcast = Broadcast.find(params[:id])
-      @reminder_settings = ReminderSetting.find_by(broadcast_id: @broadcast.id)
       @reminder_setting = ReminderSetting.new
     else
       flash[:error]= "No soap, radio."
@@ -43,15 +42,9 @@ include ApplicationHelper
 
   def update
     @broadcast = Broadcast.find(params[:id])
+    @topic = @broadcast.topic
     if @broadcast.update(broadcast_params)
-      emailable_users, textable_users = User.remindable(@broadcast)
-      emailable_users.each do |user|
-        UserMailer.broadcast_updated(@broadcast, user).deliver_now
-      end
-
-      textable_users.each do |user|
-        UserTexter.send_message(user)
-      end
+      send_reminders
       redirect_to :root
     else
       redirect_to :back
@@ -60,14 +53,7 @@ include ApplicationHelper
 
   def destroy
     @broadcast = Broadcast.find(params[:id])
-    emailable_users, textable_users = User.remindable(@broadcast)
-     emailable_users.each do |user|
-        UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
-    end
-
-    textable_users.each do |user|
-        UserTexter.send_message(user)
-    end
+    send_reminders(true)
     @broadcast.destroy
     redirect_to :root
   end
@@ -89,6 +75,20 @@ include ApplicationHelper
   end
 
   private
+
+  def send_reminders(destroy = false)
+    emailable_users, textable_users = User.remindable(@broadcast)
+     emailable_users.each do |user|
+        if destroy
+          UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
+        else
+          UserMailer.broadcast_updated(@broadcast, user).deliver_now
+        end
+    end
+    textable_users.each do |user|
+        UserTexter.send_message(user, :broadcast_cancelled)
+    end
+  end
 
   def broadcast_params
     params.require(:broadcast).permit(:topic, :datetime, :duration).merge(speaker_id: current_user.id)
