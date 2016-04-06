@@ -36,10 +36,11 @@ include ApplicationHelper
 
   def update
     @broadcast = Broadcast.find(params[:id])
-    # @topic = @broadcast.topic
     if @broadcast.update(broadcast_params)
-       UserMailer.broadcast_updated(broadcast)
-
+      emailable_users, textable_users = User.remindable(@broadcast)
+      emailable_users.each do |user|
+        UserMailer.broadcast_updated(@broadcast, user).deliver_now
+      end
       redirect_to :root
     else
       redirect_to :back
@@ -48,9 +49,12 @@ include ApplicationHelper
 
   def destroy
     @broadcast = Broadcast.find(params[:id])
-    UserMailer.broadcast_cancelled(@broadcast)
+    emailable_users, textable_users = User.remindable(@broadcast)
+    emailable_users.each do |user|
+        UserMailer.broadcast_cancelled(@broadcast, user).deliver_now
     @broadcast.destroy
-    redirect_to root_path
+    end
+    redirect_to :root
   end
 
   # def belongs_to_current_user?
