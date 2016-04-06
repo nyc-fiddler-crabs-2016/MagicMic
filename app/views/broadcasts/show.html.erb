@@ -6,6 +6,8 @@
 <p>
 <% if @broadcast.speaker == current_user %>
   <%= link_to "Cancel This Broadcast", broadcast_path(@broadcast), method: :delete %>
+   <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %>
+
   <%= render 'mic' %>
 <% else %>
   <%= render 'play' %>
