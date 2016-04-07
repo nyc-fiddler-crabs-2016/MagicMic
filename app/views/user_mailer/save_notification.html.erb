@@ -5,10 +5,6 @@
   </head>
   <body>
       <p>Dear <%= @user.username %> ,
-     <%= @broadcast.topic %>  has been added to your saved MagicMic broadcasts. 
-
-     You can listen here: 
-      <%= broadcast_url(broadcast: @broadcast) %>
-</p>
+     	 <%= @broadcast.topic %>  has been added to your saved MagicMic broadcasts. <%= link_to "You can listen here", broadcast_url(@broadcast) %></p>
   </body>
 </html>
