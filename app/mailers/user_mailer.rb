@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-default from: 'notifications@http://magic-mic.herokuapp.com/'
+default from: "magicmicdbc@gmail.com"
 
   def welcome_email(user)
     @user = user
