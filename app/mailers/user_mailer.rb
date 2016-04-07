@@ -1,18 +1,11 @@
 class UserMailer < ApplicationMailer
 
-default from: 'notifications@magicmikedbc.com'
-
-  EMAIL_SUBJECTS = {
-    hour_of_reminder: "Your broadcast starts in an hour",
-    day_before_reminder: "You have a saved broadcast tomorrow",
-    broadast_updated: "updated",#{broadcast.topic}
-    broadcast_cancelled: " cancelled"#{broadcast.topic}
-  }
+default from: 'notifications@magicmicdbc.com'
 
   def welcome_email(user)
     @user = user
     email_with_name = %("#{@user.username}"<#{@user.email}>)
-    @url  = 'http://example.com/login'
+    @url  = 'http://magicmic.com/login'
     mail(to: email_with_name,
          subject: 'Welcome to MagicMic')
   end
