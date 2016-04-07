@@ -1,6 +1,3 @@
-# require "#{Rails.root}/app/helpers/application_helper"
-# include ApplicationHelper
-
 namespace :reminders do
   desc "SEND DAILY REMINDERS"
   task daily: :environment do

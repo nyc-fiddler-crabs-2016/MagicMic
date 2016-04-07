@@ -6,10 +6,6 @@
   </head>
   <body>
       <p>Dear <%= @user.username %> ,
-      You have a saved MacgicMic broadcast scheduled within the hour. 
-
-     You can listen here: 
-      <%= broadcast_url(broadcast: @broadcast) %>
-</p>
+      You have a saved MacgicMic broadcast scheduled within the hour. <%= link_to "You can listen here", broadcast_url(@broadcast) %></p>
   </body>
 </html>
