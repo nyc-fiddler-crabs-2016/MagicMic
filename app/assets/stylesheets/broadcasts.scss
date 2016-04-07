@@ -59,7 +59,7 @@
   .page-and-form h3{
       text-decoration: underline;
   }
-  body {
+  body {#
 
 
     background-color: #000000;
@@ -222,14 +222,31 @@
     border: 5px double gray;
   }
 
-#broadcast_datetime_3i, #broadcast_datetime_2i,
-#broadcast_datetime_1i,
-#broadcast_datetime_4i,
-#broadcast_datetime_5i {
+  #broadcast_datetime_3i, #broadcast_datetime_2i,
+  #broadcast_datetime_1i,
+  #broadcast_datetime_4i,
+  #broadcast_datetime_5i {
+      height: 100px;
+      font-size: 50px;
+      border-radius: 10px;
+    }
+
+  #save-button {
     height: 100px;
     font-size: 50px;
-    border-radius: 10px;
-  }
+    
+
+    }
+
+  #reminder-settings-form{
+     
+
+    width:100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    }
 
 
 
