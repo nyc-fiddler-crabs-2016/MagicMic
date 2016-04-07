@@ -11,12 +11,12 @@ default from: 'notifications@http://magic-mic.herokuapp.com/'
   end
 
   def day_before_reminder(broadcast, user)
-    subject = "Reminder: You have a saved MagicMic broadcast tomorrow")
+    subject = "Reminder: You have a saved MagicMic broadcast tomorrow"
     do_mailing(broadcast, user, subject)
   end
 
   def hour_of_reminder(broadcast, user)
-    subject = "Reminder: You have a saved MagicMic broadcast within the hour.")
+    subject = "Reminder: You have a saved MagicMic broadcast within the hour."
     do_mailing(broadcast, user, subject)
   end
 

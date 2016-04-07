@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@http://magic-mic.herokuapp.com/"
+  default from: "magicmicdbc@gmail.com"
   layout 'mailer'
 end
