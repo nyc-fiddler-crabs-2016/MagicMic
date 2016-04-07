@@ -3,8 +3,12 @@
 
 <%= form_for @user do |f| %>
   Username: <%= f.text_field :username, autofocus: true %>
+  <p>
   Password: <%= f.password_field :password %>
+  </p>
+  <p>
   Email: <%= f.text_field :email %>
+  </p>
   <%= f.submit "Submit" %>
 
 <% end %>

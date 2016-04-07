@@ -5,9 +5,9 @@
 	<%= f.text_field :topic, autofocus: true%>
   </p>
 	<%= f.label :datetime %>
-  <p>
+  <div id="date-time">
 	<%= f.datetime_select :datetime, order: [:day, :month, :year] %>
-  </p>
+  </div>
 	<%= f.label :duration %>
   <p>
 	<%= f.text_field :duration %>
