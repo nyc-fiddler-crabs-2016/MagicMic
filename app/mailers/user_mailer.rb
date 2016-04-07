@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-default from: 'notifications@magicmicdbc.com'
+default from: 'notifications@http://magic-mic.herokuapp.com/'
 
   def welcome_email(user)
     @user = user
@@ -11,19 +11,13 @@ default from: 'notifications@magicmicdbc.com'
   end
 
   def day_before_reminder(broadcast, user)
-    @broadcast = broadcast
-    @user = user
-    email_with_name = %("#{@user.username}"<#{@user.email}>)
-    mail(to: email_with_name,
-       subject: "Reminder: You have a saved MagicMic broadcast tomorrow")
+    subject = "Reminder: You have a saved MagicMic broadcast tomorrow")
+    do_mailing(broadcast, user, subject)
   end
 
   def hour_of_reminder(broadcast, user)
-    @broadcast = broadcast
-    @user = user
-    email_with_name = %("#{@user.username}"<#{@user.email}>)
-    mail(to: email_with_name,
-       subject: "Reminder: You have a saved MagicMic broadcast within the hour.")
+    subject = "Reminder: You have a saved MagicMic broadcast within the hour.")
+    do_mailing(broadcast, user, subject)
   end
 
   def broadcast_updated(broadcast, user)

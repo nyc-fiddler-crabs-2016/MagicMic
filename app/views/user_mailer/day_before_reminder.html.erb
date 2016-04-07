@@ -6,10 +6,7 @@
   </head>
   <body>
       <p>Dear <%= @user.username %> ,
-      You have a saved MagicMic broadcast scheduled tomorrow. 
-
-     You can listen here: 
-      <%= broadcast_url(broadcast: @broadcast) %>
+      You have a saved MagicMic broadcast scheduled tomorrow. <%= link_to "You can listen here", broadcast_url(@broadcast) %>
 </p>
   </body>
 </html>

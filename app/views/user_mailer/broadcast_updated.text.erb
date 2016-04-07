@@ -1,4 +1,3 @@
 Dear <%= @user.username %>,
-The details of a MagicMic broadcast that you saved have been changed.
 
-<%= broadcast_url(@broadcast) %>
+The details of a MagicMic broadcast that you saved have been changed. <%= link_to "See the updates", broadcast_url(@broadcast) %>
