@@ -8,14 +8,7 @@ post 'login' => 'sessions#create', as: :login
 
 resources :users, only: [:new, :create, :show, :destroy]
 resources :broadcasts
-resources :reminder_settings, only: [:new, :create]
-resources :user_broadcasts, only: [:new, :create]
-
-
-
-
-
-
+resources :reminder_settings, only: [:new, :create, :update, :destroy]
 
 
 

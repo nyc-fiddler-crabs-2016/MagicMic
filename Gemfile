@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -23,7 +23,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'mailcatcher'
 gem 'twilio-ruby'
 gem 'google-api-client'
 gem 'mail'
@@ -49,7 +48,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'whenever'
-
+  gem 'mailcatcher'
 end
 
 group :development do
@@ -60,3 +59,4 @@ gem 'twilio-ruby'
   gem 'spring'
 end
 
+gem 'rails_12factor', group: :production

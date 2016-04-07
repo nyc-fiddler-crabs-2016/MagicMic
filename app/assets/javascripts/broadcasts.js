@@ -1,6 +1,6 @@
 
 function setupSocketComms() {
-  var socket = io.connect('http://localhost:8888');
+  var socket = io.connect('https://magic-mic-socket-server.herokuapp.com');
 
   // using single socket for RTCMultiConnection signaling
   var onMessageCallbacks = {};
