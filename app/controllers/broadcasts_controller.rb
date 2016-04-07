@@ -44,7 +44,7 @@ include ApplicationHelper
     @broadcast = Broadcast.find(params[:id])
     @topic = @broadcast.topic
     if @broadcast.update(broadcast_params)
-      send_reminders
+      send_event_notifications
       redirect_to :root
     else
       redirect_to :back
@@ -53,7 +53,7 @@ include ApplicationHelper
 
   def destroy
     @broadcast = Broadcast.find(params[:id])
-    send_reminders(true)
+    send_event_notifications(true)
     @broadcast.destroy
     redirect_to :root
   end
@@ -76,7 +76,7 @@ include ApplicationHelper
 
   private
 
-  def send_reminders(destroy = false)
+  def send_event_notifications(destroy = false)
     emailable_users, textable_users = User.remindable(@broadcast)
      emailable_users.each do |user|
         if destroy
