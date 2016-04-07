@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20160404193412) do
   enable_extension "plpgsql"
 
   create_table "broadcasts", force: :cascade do |t|
-    t.string   "topic",                                      null: false
-    t.datetime "datetime",   default: '2016-04-06 20:49:52'
+    t.string   "topic",                   null: false
+    t.datetime "datetime"
     t.integer  "duration",   default: 60
     t.integer  "speaker_id"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "reminder_settings", force: :cascade do |t|
