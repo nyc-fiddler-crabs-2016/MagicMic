@@ -222,14 +222,21 @@
     border: 5px double gray;
   }
 
-#broadcast_datetime_3i, #broadcast_datetime_2i,
-#broadcast_datetime_1i,
-#broadcast_datetime_4i,
-#broadcast_datetime_5i {
+  #broadcast_datetime_3i, #broadcast_datetime_2i,
+  #broadcast_datetime_1i,
+  #broadcast_datetime_4i,
+  #broadcast_datetime_5i {
+      height: 100px;
+      font-size: 50px;
+      border-radius: 10px;
+    }
+
+  #save-button {
     height: 100px;
     font-size: 50px;
-    border-radius: 10px;
-  }
+    
+
+    }
 
 
 
