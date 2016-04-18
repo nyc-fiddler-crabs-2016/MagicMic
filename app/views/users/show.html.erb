@@ -12,7 +12,8 @@
 
   <% if @user.saved_broadcasts %>
     <% @user.saved_broadcasts.each do |broadcast| %>
-      <p><%= link_to broadcast.topic, broadcast_path(broadcast) %><%= link_to "(x)", reminder_setting_path(@user,{broadcast: broadcast}), method: :delete %></p>
+      <div>
+      <p><%= link_to broadcast.topic, broadcast_path(broadcast), class: "saved-broadcast-link" %>   <%= link_to "(x)", reminder_setting_path(@user,{broadcast: broadcast}), class: "unsave-link", method: :delete %></p></div>
     <% end %>
   <% end %>
 
