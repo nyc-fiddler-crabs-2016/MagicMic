@@ -3,11 +3,13 @@
 <%= form_for :user, url: login_path do |f| %>
   <div>
     <%= f.label :username %>
+    <br>
     <%= f.text_field :username, autofocus: true%>
   </div>
 
   <div>
     <%= f.label :password %>
+    <br>
     <%= f.password_field :password %>
   </div>
 
