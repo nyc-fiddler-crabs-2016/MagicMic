@@ -4,4 +4,8 @@ class ReminderSetting < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :broadcast
+
+  def unsave
+  	self.user.saved_broadcasts.delete(self.broadcast)
+  end
 end

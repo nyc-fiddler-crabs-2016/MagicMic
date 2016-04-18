@@ -8,11 +8,11 @@ broadcast2 = Broadcast.create!(topic: "Rails Magic and How to Use It", speaker_i
 broadcast3 = Broadcast.create!(topic: "The Secrets of the Rails Wizards", speaker_id: 1, datetime: DateTime.new(2016,4,8,19,00))
 broadcast4 = Broadcast.create!(topic: "Beware the Coming of the Nice Age", speaker_id: 4, datetime: DateTime.new(2016,4,8,19,00))
 broadcast5 = Broadcast.create!(topic: "MarioKart Racers: Where Are They Now?", speaker_id: 4, datetime: DateTime.new(2016,4,8,19,00))
-broadcast6 = Broadcast.create!(topic: "The State of the Onion", speaker_id: 1, datetime: DateTime.new(2016,4,8,19,00))
-broadcast7 = Broadcast.create!(topic: "Rails Magic and How to Use It", speaker_id: 1, datetime: DateTime.new(2016,4,8,19,00) )
-broadcast8 = Broadcast.create!(topic: "The Secrets of the Rails Wizards", speaker_id: 1, datetime: DateTime.new(2016,4,8,18,00))
-broadcast9 = Broadcast.create!(topic: "Beware the Coming of the Nice Age", speaker_id: 4, datetime: DateTime.new(2016,4,8,17,00))
-broadcast10 = Broadcast.create!(topic: "MarioKart Racers: Where Are They Now?", speaker_id: 4, datetime: DateTime.new(2016,4,8,16,00))
+broadcast6 = Broadcast.create!(topic: "Google and Waze", speaker_id: 1, datetime: DateTime.new(2016,4,8,19,00))
+broadcast7 = Broadcast.create!(topic: "Public Speaking", speaker_id: 1, datetime: DateTime.new(2016,4,8,19,00) )
+broadcast8 = Broadcast.create!(topic: "Semi-private Speaking", speaker_id: 1, datetime: DateTime.new(2016,4,8,18,00))
+broadcast9 = Broadcast.create!(topic: "TBD", speaker_id: 4, datetime: DateTime.new(2016,4,8,17,00))
+broadcast10 = Broadcast.create!(topic: "TBA", speaker_id: 4, datetime: DateTime.new(2016,4,8,16,00))
 
 
 ReminderSetting.create!(user_id: 2, broadcast_id: 1)

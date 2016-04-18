@@ -11,8 +11,8 @@
   <h3> Your Saved Broadcasts </h3>
 
   <% if @user.saved_broadcasts %>
-    <% @user.saved_broadcasts.each do |stream| %>
-      <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+    <% @user.saved_broadcasts.each do |broadcast| %>
+      <p><%= link_to broadcast.topic, broadcast_path(broadcast) %><%= link_to "(x)", reminder_setting_path(@user,{broadcast: broadcast}), method: :delete %></p>
     <% end %>
   <% end %>
 
