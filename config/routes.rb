@@ -6,6 +6,8 @@ get 'login' => 'sessions#new', as: :new_login
 delete 'logout' => 'sessions#destroy', as: :logout
 post 'login' => 'sessions#create', as: :login
 
+# get "/auth/:provider/callback" => "calendar_auth#create"
+
 resources :users, only: [:new, :create, :show, :destroy]
 resources :broadcasts
 resources :reminder_settings, only: [:new, :create, :update, :destroy]
