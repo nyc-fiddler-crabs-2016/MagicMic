@@ -15,21 +15,24 @@
   <p>
      <%= render 'reminder_settings/form', locals: {reminder_setting: @reminder_setting}  %>
     <div id="reminder_signup">
-  <p>
-  <button id="save-button">Save</button>
-  </p>
-  
+      <p>
+    <% if current_user.saved_broadcasts.include?(@broadcast) %>
+      <button id="save-button">Save</button>
+    <% else %>
+      <button id="save-button">Save</button>
+      </p>
+    </div>
+        <%= image_tag("listen.png")%>
+      </p>
+    <% end %>
+    <% end %>
 
-</div>
-    <%= image_tag("listen.png")%>
-  </p>
-<% end %>
 </p>
 
 
 
 
-<div id="videos-container"></div>
+<div id="audio-container"></div>
 <p>
 </p>
 <button id="open-or-join" data-room="room<%=@broadcast.id%>"> </button>

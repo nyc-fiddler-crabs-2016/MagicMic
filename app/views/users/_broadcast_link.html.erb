@@ -1,0 +1,5 @@
+<div id="unsave-container-<%= broadcast.id%>">
+  <p>
+    <%= link_to broadcast.topic, broadcast_path(broadcast), class: "saved-broadcast-link" %>   <%= link_to "(x)", reminder_setting_path(@user,{broadcast: broadcast}), class: "unsave-link" %>
+  </p>
+</div>

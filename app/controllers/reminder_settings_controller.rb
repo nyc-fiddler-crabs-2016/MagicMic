@@ -15,7 +15,7 @@ class ReminderSettingsController < ApplicationController
     reminder_setting = ReminderSetting.find_by(user_id: params[:id], broadcast_id: params[:broadcast])
     reminder_setting.unsave
     reminder_setting.destroy
-    redirect_to :back
+    render json: "Broadcast Un-saved"
   end
 
   private

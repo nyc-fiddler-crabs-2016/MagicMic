@@ -14,7 +14,7 @@ function setupSocketComms() {
   // initializing RTCMultiConnection constructor.
   function initRTCMultiConnection(userid) {
      var connection = new RTCMultiConnection();
-     connection.body = document.getElementById('videos-container');
+     connection.body = document.getElementById('audio-container');
      connection.channel = connection.sessionid = connection.userid = userid || connection.userid;
      connection.sdpConstraints.mandatory = {
          OfferToReceiveAudio: false,
