@@ -14,7 +14,8 @@
      <%= render 'reminder_settings/form', locals: {reminder_setting: @reminder_setting}  %>
     <div id="reminder_signup">
       <p>
-    <% if current_user.saved_broadcasts.include?(@broadcast) %>
+    <% if ReminderSetting.find_by(user_id: current_user.id, broadcast_id: @broadcast.id) %>
+    
       <button id="unsave-button">Unsave</button>
     <% else %>
       <button id="save-button">Save</button>
