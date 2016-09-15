@@ -1,12 +1,10 @@
 <div class="broadcast-show-page">
+  <h1 id="broadcast-show-header" ><%= @broadcast.topic %></h1>
+  <h3 id="broadcast-time-header"><%= @broadcast.readable_time %></h3>
 
-<h1 id="broadcast-show-header" ><%= @broadcast.topic %></h1>
-
-<h3 id="broadcast-time-header"><%= @broadcast.readable_time %></h3>
 <p>
 <% if @broadcast.speaker == current_user %>
-  <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %>
-   |
+  <%= link_to "Change Broadcast Details", edit_broadcast_path(@broadcast) %> |
   <%= link_to "Cancel This Broadcast", broadcast_path(@broadcast), method: :delete %>
     <p>
     <%= image_tag("mic.png")%>
@@ -15,25 +13,20 @@
   <p>
      <%= render 'reminder_settings/form', locals: {reminder_setting: @reminder_setting}  %>
     <div id="reminder_signup">
-  <p>
-  <button id="save-button">Save</button>
-  </p>
-  
-
-</div>
-    <%= image_tag("listen.png")%>
-  </p>
-<% end %>
+      <p>
+    <% if ReminderSetting.find_by(user_id: current_user.id, broadcast_id: @broadcast.id) %>
+    
+      <button id="unsave-button">Unsave</button>
+    <% else %>
+      <button id="save-button">Save</button>
+      </p>
+    </div>
+        <%= image_tag("listen.png")%>
+      </p>
+    <% end %>
+    <% end %>
 </p>
 
-
-
-
-<div id="videos-container"></div>
-<p>
-</p>
-<button id="open-or-join" data-room="room<%=@broadcast.id%>"> </button>
-
-
-
+<div id="audio-container"></div>
+  <button id="open-or-join" data-room="room<%=@broadcast.id%>"> </button>
 </div>

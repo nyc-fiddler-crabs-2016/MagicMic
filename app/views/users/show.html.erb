@@ -3,16 +3,16 @@
   <h3>Your Scheduled Broadcasts</h3>
 
   <% if @user.broadcasts%>
-    <% @user.broadcasts.each do |stream| %>
-      <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+    <% @user.broadcasts.each do |broadcast| %>
+      <p><%= link_to broadcast.topic, broadcast_path(broadcast) %></p>
     <% end %>
   <% end %>
 
   <h3> Your Saved Broadcasts </h3>
 
   <% if @user.saved_broadcasts %>
-    <% @user.saved_broadcasts.each do |stream| %>
-      <p><%= link_to stream.topic, broadcast_path(stream) %></p>
+    <% @user.saved_broadcasts.each do |broadcast| %>
+     <%= render partial: "broadcast_link", layout: false, locals: {broadcast: broadcast} %>
     <% end %>
   <% end %>
 

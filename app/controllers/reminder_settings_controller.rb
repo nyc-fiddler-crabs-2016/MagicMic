@@ -11,6 +11,13 @@ class ReminderSettingsController < ApplicationController
     end
   end
 
+  def destroy
+    reminder_setting = ReminderSetting.find_by(user_id: params[:id], broadcast_id: params[:broadcast])
+    reminder_setting.unsave
+    reminder_setting.destroy
+    render text: "Broadcast Un-saved"
+  end
+
   private
 
   def reminder_params
